@@ -33,11 +33,10 @@ const Project = ({ id, active, changeStatus,title,desc,tech,image }) => {
                 <h1 className="text-5xl ">{title}</h1>
                 <p className="break-words text-wrap px-20 text-xl">{desc}</p>
                 <div className="flex gap-1 justify-center ">
-                    <span className="border-2 p-1 border-white rounded-lg">React</span>
-                    <span className="border-2 p-1 border-white rounded-lg">CSS</span>
-                    <span className="border-2 p-1 border-white rounded-lg">Mongo</span>
-                    <span className="border-2 p-1 border-white rounded-lg">Firebase</span>
-                    <span className="border-2 p-1 border-white rounded-lg">SQL</span>
+                    {
+                        // eslint-disable-next-line react/prop-types
+                        tech?.map((t)=><span key={t} className="border-2 p-1 border-white rounded-lg">{t}</span>)
+                    }
                 </div>
                 <button className="hover:scale-125 hover:bg-white w-max self-center justify-self-center transition-all ease-in duration-100 rounded-2xl border-2  border-white hover:text-black p-2">
                     Visit Website

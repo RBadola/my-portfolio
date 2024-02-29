@@ -3,6 +3,7 @@
 import './App.css'
 import { useEffect } from 'react'
 import Projects from './components/Projects'
+import TechStack from './components/TechStack'
 
 function App() {
   
@@ -36,8 +37,9 @@ function App() {
   }, [])
 
   return (
-    <div className='w-full h-full grid'>
+    <div className='w-full h-full '>
       <Projects/>
+      <TechStack/>
     </div>
   )
 }
