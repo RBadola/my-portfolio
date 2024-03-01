@@ -27,7 +27,7 @@ const Project = ({ id, active, changeStatus,title,desc,tech,image }) => {
     }
     const elementRef = useRef()
     return (
-        <div ref={elementRef} id={id} className={twMerge("w-[60px] min-w-[60px]  h-4/6 bg-purple-700 border-2 rounded-2xl relative select-none max-w-4xl overflow-hidden", active[id] && "w-5/6 inline-block")} onClick={cs}>
+        <div ref={elementRef} id={id} className={twMerge("w-[180px] min-w-[60px]  h-1/3 bg-purple-700 border-2 rounded-2xl relative select-none max-w-4xl overflow-hidden", active[id] && "w-5/6 h-4/6 inline-block")} onClick={cs}>
             <img src={image} className="w-full h-full object-cover object-left-top rounded-2xl" />
             <div className={twMerge("absolute top-0 backdrop-blur-sm h-full w-full  justify-center items-center font-Rubik font white rounded-2xl hidden text-white", active[id] && "grid")}>
                 <h1 className="text-5xl ">{title}</h1>
