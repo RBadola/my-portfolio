@@ -4,6 +4,7 @@ import './App.css'
 import { useEffect } from 'react'
 import Projects from './components/Projects'
 import TechStack from './components/TechStack'
+import HeroSection from './components/HeroSection'
 
 function App() {
   
@@ -38,6 +39,7 @@ function App() {
 
   return (
     <div className='w-full h-full '>
+      <HeroSection/>
       <Projects/>
       <TechStack/>
     </div>

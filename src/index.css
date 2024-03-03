@@ -2,3 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.tech_card{
+    @apply w-44 h-48 border border-white  hover:scale-105 transition rounded;
+}
