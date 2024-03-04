@@ -12,6 +12,6 @@ body {
     @apply w-[150px] h-[200px] md:w-44 md:h-48 border border-white hover:scale-105 transition rounded text-center;
 }
 .contact{
-    background-image: url("bg.jpg");
+    background-image: url("bg2.jpg");
     background-size: cover;
 }
