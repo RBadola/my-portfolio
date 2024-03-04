@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 
 import './App.css'
@@ -5,6 +6,7 @@ import { useEffect } from 'react'
 import Projects from './components/Projects'
 import TechStack from './components/TechStack'
 import HeroSection from './components/HeroSection'
+import Contact from './components/contact'
 
 function App() {
   
@@ -38,9 +40,10 @@ function App() {
   }, [])
 
   return (
-    <div className='w-full h-full '>
+    <div className='w-full h-full bg-orange-700 '>
       <HeroSection/>
-      <Projects/>
+      {/* <Projects/>  */}
+      <Contact/>
       <TechStack/>
     </div>
   )

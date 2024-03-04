@@ -31,7 +31,7 @@ const Project = ({ id, active, changeStatus,title,desc,tech,image }) => {
             <img src={image} className="w-full h-full object-cover object-left-top rounded-2xl" />
             <div className={twMerge("absolute top-0 backdrop-blur-sm h-full w-full  justify-center items-center font-Rubik font white rounded-2xl hidden text-white", active[id] && "grid")}>
                 <h1 className="text-5xl ">{title}</h1>
-                <p className="break-words text-wrap px-20 text-xl">{desc}</p>
+                <p className="break-words text-wrap px-20 text-xl ">{desc}</p>
                 <div className="flex gap-1 justify-center ">
                     {
                         // eslint-disable-next-line react/prop-types

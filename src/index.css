@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.tech_card{
-    @apply w-44 h-48 border border-white  hover:scale-105 transition rounded;
+body {
+    background-color: rgb(194 65 12);
+}
+
+.tech_card {
+    @apply w-[150px] h-[200px] md:w-44 md:h-48 border border-white hover:scale-105 transition rounded text-center;
+}
+.contact{
+    background-image: url("bg.jpg");
+    background-size: cover;
 }
