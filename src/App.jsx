@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 import Projects from './components/Projects'
 import TechStack from './components/TechStack'
 import HeroSection from './components/HeroSection'
-import Contact from './components/contact'
+import Contact from './components/Contact'
 
 function App() {
   
@@ -43,8 +43,8 @@ function App() {
     <div className='w-full h-full bg-orange-700 '>
       <HeroSection/>
       {/* <Projects/>  */}
-      <Contact/>
       <TechStack/>
+      <Contact/>
     </div>
   )
 }
