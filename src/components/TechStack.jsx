@@ -1,54 +1,57 @@
-import { FaReact } from "react-icons/fa";
+import { FaGithub, FaHtml5, FaNodeJs, FaReact } from "react-icons/fa";
+import { BiLogoMongodb } from "react-icons/bi";
+import { TbBrandCss3, TbBrandFirebase, TbBrandJavascript } from "react-icons/tb";
+import { SiExpress, SiMysql, SiTailwindcss } from "react-icons/si";
 const TechStack = () => {
     return (
         <div className='w-full h-full font-extrabold grid overflow-hidden '>
             {/* <div className="w-4/5 h-full md:flex md:place-self-center "> */}
             <div className="text-2xl md:text-5xl text-white ml-3 w-[100px] md:w-max break-words"><p>TECH I KNOW</p></div>
-            <div className="   grid grid-cols-2  md:grid-cols-5 gap-8 p-2  md:place-self-center rounded-md relative">
+            <div className="   grid grid-cols-5 gap-8 p-2  md:place-self-center rounded-md relative">
                 <div className="grid gap-2 ">
                     <div className="tech_card  md:place-self-end">
-                        <span>MongoDb</span>
+                        <span><BiLogoMongodb size={100} /></span>
                     </div>
                 </div>
                 <div className="grid gap-2 ">
                     <div className="tech_card ">
-                        <span><FaReact /></span>
+                        <span><FaReact size={100} /></span>
                     </div>
                     <div className="tech_card ">
-                        <span>Javascript</span>
+                        <span><TbBrandJavascript size={100}/></span>
                     </div>
                     <div className="tech_card ">
-                        <span>CSS</span>
+                        <span><TbBrandCss3 size={100} /></span>
                     </div>
                 </div>
                 <div className="grid gap-2 md:mt-6">
 
                     <div className="tech_card ">
-                        <span>Tailwind CSS</span>
+                        <span><SiTailwindcss size={100} /> </span>
                     </div>
                     <div className="tech_card ">
-                        <span>Firebase</span>
+                        <span><TbBrandFirebase size={100} /></span>
                     </div>
                     <div className="tech_card ">
-                        <span>Node</span>
+                        <span><FaNodeJs size={100} /></span>
                     </div>
                 </div>
                 <div className="grid gap-2">
 
                     <div className="tech_card ">
-                        <span>Firebase</span>
+                        <span><SiMysql size={100} /></span>
                     </div>
                     <div className="tech_card ">
-                        <span>Express</span>
+                        <span><SiExpress size={100} /></span>
                     </div>
                     <div className="tech_card ">
-                        <span>Git and Github</span>
+                        <span><FaGithub size={100} /></span>
                     </div>
                 </div>
                 <div className="grid gap-2 md:mt-6">
 
                     <div className="tech_card  ">
-                        <span>HTML</span>
+                        <span><FaHtml5 size={100} /></span>
                     </div>
 
                 </div>

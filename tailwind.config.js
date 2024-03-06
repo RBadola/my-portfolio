@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        Rubik: ["Rubik Doodle Shadow", "cursive"]
+        Rubik: ["Rubik Doodle Shadow", "cursive"],
+        Nunito:["Nunito Sans"]
        },
     },
   },

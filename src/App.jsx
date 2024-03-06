@@ -7,11 +7,14 @@ import Projects from './components/Projects'
 import TechStack from './components/TechStack'
 import HeroSection from './components/HeroSection'
 import Contact from './components/Contact'
+import useWidth from './utils/useWidth'
+import TechStackMobile from './components/TechStackMobile'
 
 function App() {
   
 
   
+  const width = useWidth()
   useEffect(() => {
     // const elements = document.querySelectorAll(".draggable")
     // elements.forEach((item) => {
@@ -37,13 +40,13 @@ function App() {
     //     }
     // }
 
-  }, [])
-
+  },[])
+  console.log(width)
   return (
     <div className='w-full h-full bg-orange-700 '>
       <HeroSection/>
       {/* <Projects/>  */}
-      <TechStack/>
+{ width <= 640 ? <TechStackMobile/>  :     <TechStack/>}
       <Contact/>
     </div>
   )

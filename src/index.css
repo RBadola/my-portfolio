@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,7 +11,7 @@ body {
 }
 
 .tech_card {
-    @apply w-[150px] h-[200px] md:w-44 md:h-48 border border-white hover:scale-105 transition rounded text-center;
+    @apply w-[150px] h-[200px] md:w-44 md:h-48 border border-black hover:scale-105 transition grid place-content-center rounded text-center;
 }
 .contact{
     background-image: url("bg2.jpg");
