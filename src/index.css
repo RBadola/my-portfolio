@@ -17,3 +17,19 @@ body {
     background-image: url("bg2.jpg");
     background-size: cover;
 }
+.bg-card{
+    background: radial-gradient(rgba(255,255,255,0.2) 8%, transparent 8%);
+    background-position: 0% 0%;
+    background-size:  5vmin 5vmin;
+    height: 100%;
+    width: 100%;
+}
+.bg-box{
+    animation: glow 2s linear  forwards both ;
+}
+@keyframes glow{
+   
+}
+.tech-gradient{
+    background-image: radial-gradient(700px circle at 20% ,rgba(255,255,255,0.3),transparent 40%);
+}

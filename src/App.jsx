@@ -43,7 +43,7 @@ function App() {
   },[])
   console.log(width)
   return (
-    <div className='w-full h-full bg-orange-700 '>
+    <div className='w-full h-full '>
       <HeroSection/>
       {/* <Projects/>  */}
 { width <= 640 ? <TechStackMobile/>  :     <TechStack/>}
