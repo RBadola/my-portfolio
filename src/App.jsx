@@ -43,8 +43,8 @@ function App() {
     <div className='w-full h-full bg-orange-700 '>
       <HeroSection/>
       {/* <Projects/>  */}
-      <Contact/>
       <TechStack/>
+      <Contact/>
     </div>
   )
 }
