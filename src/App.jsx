@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 import Projects from './components/Projects'
 import TechStack from './components/TechStack'
 import HeroSection from './components/HeroSection'
-import Contact from './components/contact'
+import Contact from './components/Contact'
 
 function App() {
   
