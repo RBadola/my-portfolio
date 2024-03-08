@@ -7,9 +7,7 @@ const Bg = () => {
   const h = Math.floor(height / 50);
  
   return (
-    <div className="absolute w-full h-full z-[1] top-0   overflow-hidden bg-card ">
-      
-    </div>
+<></>
   );
 };
 

@@ -9,6 +9,7 @@ import HeroSection from './components/HeroSection'
 import Contact from './components/Contact'
 import useWidth from './utils/useWidth'
 import TechStackMobile from './components/TechStackMobile'
+import FRamer from './components/FRamer'
 
 function App() {
   
@@ -44,6 +45,7 @@ function App() {
   console.log(width)
   return (
     <div className='w-full h-full '>
+      <FRamer/>
       <HeroSection/>
       {/* <Projects/>  */}
 { width <= 640 ? <TechStackMobile/>  :     <TechStack/>}
