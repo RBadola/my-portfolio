@@ -38,8 +38,8 @@ const HeroSection = () => {
         alt="my-image"
       />
       <motion.section className="max-w-screen-md  z-10 pointer-events-none">
-        <motion.p className="text-4xl text-white text-center">
-          <p className="text-6xl">Hi, I am Roshan Badola.</p> A passionate web
+        <motion.p className=" text-white text-center">
+          <p className=" text-3xl  md:text-6xl">Hi, I am Roshan Badola.</p> A passionate web
           developer looking to showcase my talent and skills to all the
           recruiters out thier.
         </motion.p>

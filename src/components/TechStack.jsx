@@ -13,7 +13,7 @@ const TechStack = () => {
   return (
     <motion.div className="w-full h-full  font-extrabold grid overflow-hidden ">
       {/* <motion.div className="w-4/5 h-full md:flex md:place-self-center "> */}
-      <motion.div className="text-2xl md:text-5xl text-white ml-3 w-[100px] md:w-max break-words">
+      <motion.div className="text-2xl md:text-5xl  ml-3 w-[100px] md:w-max break-words">
         <motion.p>TECH I KNOW</motion.p>
       </motion.div>
       <motion.div className="   grid grid-cols-5 gap-8 p-2  md:place-self-center rounded-md relative">
@@ -36,7 +36,7 @@ const TechStack = () => {
               },
             }}
           >
-            <motion.span>
+            <motion.span >
               <BiLogoMongodb size={100} />
             </motion.span>
           </motion.div>

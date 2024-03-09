@@ -34,7 +34,7 @@ const Contact = () => {
     setStatus("Send");
   };
   return (
-    <div className="w-full h-screen flex flex-col  items-center p-3 contact overflow-visible">
+    <div className="w-full h-screen flex flex-col  items-center contact overflow-visible">
       <p className="text-4xl text-white  font-bold mb-10">Reach Out To Me</p>
       <div className="w-full  pt-6 flex flex-col md:flex-row  justify-center items-center relative ">
         <form

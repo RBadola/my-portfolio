@@ -1,35 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body {
-    background-color: rgb(194 65 12);
+/* SCSS RGB */
+html {
+  --green-blue: #2364aaff;
+  --picton-blue: #3da5d9ff;
+  --verdigris: #73bfb8ff;
+  --mikado-yellow: #fec601ff;
+  --pumpkin: #ea7317ff;
 }
+
+
 
 .tech_card {
-    @apply w-[150px] h-[200px] md:w-44 md:h-48 border border-black   grid place-content-center rounded text-center  ;
+  @apply w-[150px] h-[200px] md:w-44 md:h-48 border border-black   grid place-content-center rounded text-center;
 }
-.contact{
-    background-image: url("bg2.jpg");
-    background-size: cover;
+.contact {
+  background-image: url("bg2.jpg");
+  background-size: cover;
 }
-.bg-card{
-    background: radial-gradient(rgba(255,255,255,0.2) 8%, transparent 8%);
-    background-position: 0% 0%;
-    background-size:  5vmin 5vmin;
-    height: 100%;
-    width: 100%;
+.bg-card {
+  background: radial-gradient(rgba(255, 255, 255, 0.2) 8%, transparent 8%);
+  background-position: 0% 0%;
+  background-size: 5vmin 5vmin;
+  height: 100%;
+  width: 100%;
 }
-.bg-box{
-    animation: glow 2s linear  forwards both ;
+.bg-box {
+  animation: glow 2s linear forwards both;
 }
-@keyframes glow{
-   
+@keyframes glow {
 }
-.tech-gradient{
-    background-image: radial-gradient(700px circle at 20% ,rgba(255,255,255,0.3),transparent 40%);
+.tech-gradient {
+  background-image: radial-gradient(
+    700px circle at 20%,
+    rgba(255, 255, 255, 0.3),
+    transparent 40%
+  );
 }
