@@ -1,4 +1,4 @@
-import { motion, AnimatePresence,MotionConfig ,useAnimationControls,Reorder} from "framer-motion";
+import { motion, AnimatePresence,MotionConfig ,useAnimationControls,Reorder,useScroll} from "framer-motion";
 import React, { useState } from "react";
 
 const FRamer = () => {
@@ -9,15 +9,20 @@ const FRamer = () => {
   // const [items, setItems] = useState([0, 1, 2, 3])
   const pV={
     initial:{
-      rotate:"0deg"
+      opacity:0,
+      rotate:"0deg",
+      scale:1
     },
     flip:{
+      opacity:1,
+      scale:1.5,
       rotate:"360deg",
       transition:{
-        type:"spring",
-        when:"beforeChildren",
-        staggerDirection:0.5
+        duration:1,
       },
+    },
+    hover:{
+      scale:2
     }
   }
   const items={
@@ -65,14 +70,19 @@ const FRamer = () => {
       <motion.ul className="w-28 h-28 bg-black text-white" 
       variants={pV}
       initial="initial"
-      animate="flip"
-      
+      animate={
+        {transition:{
+          ease:"easeOut",
+          repeatType:"loop"
+        }}
+      }
+      whileHover="hover"
       >
-      <motion.li className="p-1" variants={items}  >1</motion.li>
+      {/* <motion.li className="p-1" variants={items}  >1</motion.li>
       <motion.li className="p-1" variants={items}  >2</motion.li>
       <motion.li className="p-1" variants={items}  >3</motion.li>
       <motion.li className="p-1" variants={items}  >4</motion.li>
-      <motion.li className="p-1" variants={items}  >5</motion.li>
+      <motion.li className="p-1" variants={items}  >5</motion.li> */}
         
       </motion.ul>
     </motion.div>

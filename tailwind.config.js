@@ -8,7 +8,8 @@ export default {
     extend: {
       fontFamily: {
         Rubik: ["Rubik Doodle Shadow", "cursive"],
-        Nunito:["Nunito Sans"]
+        Nunito:["Nunito Sans"],
+        Dance:["Dancing Script"]
        },
     },
   },

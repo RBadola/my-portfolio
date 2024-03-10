@@ -3,10 +3,9 @@ import { motion } from "framer-motion";
 // import './BluuNext-Bold.ttf'
 const HeroSection = () => {
   return (
-    <motion.div className="w-full h-full bg-black relative  flex flex-col md:flex-row justify-center items-center  font-extrabold   ">
-          <div className="absolute w-full h-full z-[1] top-0   overflow-hidden bg-card ">
-      
-      </div>
+    <motion.div className="w-full h-full bg-black relative  flex flex-col md:flex-row justify-center items-center px-10 font-extrabold   ">
+      <Bg />
+
       <motion.img
         // initial={{ opacity: 0, scale: 0.5 }}
         // animate={{ opacity: 1, scale: 1 }}
@@ -33,16 +32,20 @@ const HeroSection = () => {
         // }}
         // whileTap={{ scale: 0.9,transition:{duration:0.3} }}
         // whileInView={{ opacity: 1 }}
-        className="w-[300px] h-max border border-black object-contain rounded-md z-10  "
+        className="w-[300px] h-max border border-black object-contain rounded-md z-10  pointer-events-none "
         src="portrait.avif"
         alt="my-image"
       />
-      <motion.section className="max-w-screen-md  z-10 pointer-events-none">
-        <motion.p className=" text-white text-center">
-          <p className=" text-3xl  md:text-6xl">Hi, I am Roshan Badola.</p> A passionate web
-          developer looking to showcase my talent and skills to all the
-          recruiters out thier.
-        </motion.p>
+      <motion.section className="  z-10 pointer-events-none">
+        <motion.div className=" text-white text-center">
+          <p className=" text-3xl  md:text-6xl">
+            Hi, I am <span className="text-9xl font-Dance bg-clip-text bg-gradient-to-l from-pink-500 to-yellow-400 text-pretty text-transparent font-extrabold">Roshan Badola.</span>
+          </p>
+          <p className="text-4xl">
+            A passionate web developer looking to showcase my talent and skills
+            to all the recruiters out thier.
+          </p>
+        </motion.div>
         <motion.span></motion.span>
       </motion.section>
     </motion.div>
