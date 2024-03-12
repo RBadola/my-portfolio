@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,14 +14,18 @@ html {
   --pumpkin: #ea7317ff;
 }
 
-
-
 .tech_card {
-  @apply w-[150px] h-[200px] md:w-44 md:h-48 border border-black   grid place-content-center rounded text-center;
+  @apply w-[150px] h-[200px] md:w-44 md:h-48   grid place-content-center text-white text-center;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(221, 221, 228, 0.37);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(5.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .contact {
-  background-image: url("bg2.jpg");
-  background-size: cover;
+  background-image: url("bg3.jpg");
+  background-size: contain;
 }
 .bg-card {
   background: radial-gradient(rgba(255, 255, 255, 0.2) 8%, transparent 8%);
@@ -33,12 +37,36 @@ html {
 .bg-box {
   animation: glow 2s linear forwards both;
 }
+.blob {
+  /* clip-path: path('M41.8,-10.7C49.5,10.1,47.9,36.9,31.2,50.9C14.5,64.9,-17.3,66.2,-37.1,51.6C-57,37,-65.1,6.6,-56.9,-14.8C-48.8,-36.2,-24.4,-48.6,-3.7,-47.5C17.1,-46.3,34.1,-31.5,41.8,-10.7Z'); */
+  animation: rotate 20s infinite;
+  /* transform:"translate(100 100)"; */
+}
 @keyframes glow {
 }
 .tech-gradient {
-  background-image: radial-gradient(
-    700px circle at 20%,
-    rgba(255, 255, 255, 0.3),
-    transparent 40%
-  );
+  background-image: repeating-linear-gradient(
+      45deg,
+      black 4px,
+      transparent 10px,
+      transparent 50px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      black 4px,
+      transparent 10px,
+      transparent 50px
+    );
+}
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+  }
+  50% {
+    scale: 1.5;
+  }
+
+  to {
+    rotate: 360deg;
+  }
 }

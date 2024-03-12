@@ -53,7 +53,7 @@ const Projects = () => {
       url: " https://writeon-4e1e7.web.app/home",
       tech: ["React.Js", "TaiwindCss", "Node.Js", "Express.Js", "Javascript"],
       img: "p1.png",
-      id: "p1",
+      id: "p4",
     },
     {
       title: "Edit It",
@@ -61,7 +61,7 @@ const Projects = () => {
       url: "https://edititv2.web.app/",
       tech: ["React.Js", "TaiwindCss", "Firebase"],
       img: "p2.png",
-      id: "p2",
+      id: "p5",
     },
     {
       title: "Laptop Break Reminder",
@@ -69,7 +69,7 @@ const Projects = () => {
       url: "https://github.com/RBadola/BlinkTracker",
       tech: ["Python", "OpenCv", "dlib", "Win10Toast"],
       img: "p3.png",
-      id: "p3",
+      id: "p6",
     },
   ];
   return (

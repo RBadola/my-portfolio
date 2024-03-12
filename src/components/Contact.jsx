@@ -9,6 +9,8 @@ import { IoMdDoneAll, IoMdClose } from "react-icons/io";
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { twMerge } from "tailwind-merge";
+import { motion} from "framer-motion";
+import Parallex from "../utils/Parallex";
 
 const Contact = () => {
   const form = useRef();
@@ -34,9 +36,13 @@ const Contact = () => {
     setStatus("Send");
   };
   return (
-    <div className="w-full h-screen flex flex-col  items-center contact overflow-visible">
-      <p className="text-4xl text-white  font-bold mb-10">Reach Out To Me</p>
-      <div className="w-full  pt-6 flex flex-col md:flex-row  justify-center items-center relative ">
+    <div className="w-full h-screen flex flex-col  items-center  relative overflow-visible">
+      <Parallex/>
+      <motion.div className="absolute w-full h-full bg-gradient-to-b from-black to-[rgba(255,255,255,0.2)]">
+        {/* <motion.div className="w-[200px] h-[200px] rounded-full bg-white " initial={{y:0,x:0,opacity:0}} animate={{y:-100,x:200,opacity:1}} transition={{duration:1,type:"spring",repeat:Infinity,repeatType:"mirror"}}></motion.div> */}
+      </motion.div>
+      <p className="text-4xl text-white  font-bold mb-10 font-mono z-10">Reach Out To Me</p>
+      <motion.div className="w-full  pt-6 flex flex-col md:flex-row  justify-center items-center relative z-50 ">
         <form
           ref={form}
           onSubmit={sendEmail}
@@ -79,7 +85,12 @@ const Contact = () => {
             {Status}
           </button>
         </form>
-        <div className="  bg-rose-400 w-4/5  md:w-1/4 md:h-[350px] mb-11 relative md:absolute -top-4 md:text-lg  md:top-24 p-2 md:p-9 flex flex-col md:gap-y-3 text-white font-bold md:left-2/3 rounded-md z-50  ">
+        <motion.div initial={{y:150}} animate={{y:[150,-170,80,-130,150,0]}} transition={{
+          duration:1,
+          // type:"spring",
+          ease:"circInOut"
+        }}
+         className="  bg-rose-400 w-4/5  md:w-1/4 md:h-[350px] mb-11 relative md:absolute -top-4 md:text-lg  md:top-24 p-2 md:p-9 flex flex-col md:gap-y-3 text-white font-bold md:left-2/3 rounded-md z-50  ">
           <div className="absolute rotate-90 right-3 -top-10 md:rotate-0 md:top-14 md:-left-16 ">
             {/*  */}
             <div className=" w-[100px] h-[30px] rounded-l-xl bg-rose-400   "></div>
@@ -136,8 +147,8 @@ const Contact = () => {
               github.com/RBadola
             </a>
           </p>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

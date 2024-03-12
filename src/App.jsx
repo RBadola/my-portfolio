@@ -40,7 +40,7 @@ function App() {
     <div className="w-full h-full  ">
       <HeroSection />
       <Projects />
-      <FRamer />
+      {/* <FRamer /> */}
       {width <= 640 ? <TechStackMobile /> : <TechStack />}
       <Contact />
     </div>
