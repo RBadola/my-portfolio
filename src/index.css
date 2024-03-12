@@ -47,15 +47,18 @@ html {
 .tech-gradient {
   background-image: repeating-linear-gradient(
       45deg,
-      black 4px,
-      transparent 10px,
+      transparent 4px,
+      rgba(0, 0 ,0 ,0.8) 40px,
       transparent 50px
+
     ),
     repeating-linear-gradient(
       -45deg,
-      black 4px,
-      transparent 10px,
+      transparent 4px,
+      rgba(0, 0 ,0 ,0.8) 40px,
       transparent 50px
+
+
     );
 }
 @keyframes rotate {

@@ -39,9 +39,9 @@ function App() {
   return (
     <div className="w-full h-full  ">
       <HeroSection />
+      {width <= 640 ? <TechStackMobile /> : <TechStack />}
       <Projects />
       {/* <FRamer /> */}
-      {width <= 640 ? <TechStackMobile /> : <TechStack />}
       <Contact />
     </div>
   );

@@ -37,8 +37,7 @@ const Bg = () => {
      
       count = count+1
       anime({
-        targets:".grid-box",
-       
+        targets:".grid-box",       
         translateY:[
           {value:-15,ease:"easeOutSine",duration:250},
           {value:0,ease:"easeInOutQuad",duration:500},
@@ -71,7 +70,8 @@ const Bg = () => {
         targets: e.target,
         color:bg,
         duration: duration,
-        elasticity: elasticity
+        elasticity: elasticity,
+        delay:20
       });
     }
     for (let i = 1; i <= col; i++) {

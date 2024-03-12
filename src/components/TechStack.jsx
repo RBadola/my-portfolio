@@ -12,15 +12,10 @@ import { useEffect, useRef, useState } from "react";
 
 const TechStack = () => {
   const ref = useRef();
-  const [hw, sethw] = useState({
-    h: 0,
-    w: 0,
-  });
-  const controls = useAnimationControls();
+
   const blob = document.getElementById("blob");
   // const blobS = document.getElementById("blobShadow");
   const mouseCo = (e) => {
-    controls.stop();
     var rect = e.currentTarget.getBoundingClientRect();
     var x = e.clientX - rect.left;
     var y = e.clientY - rect.top;
@@ -33,29 +28,7 @@ const TechStack = () => {
     );
     console.log(e.clientX, e.clientY, rect);
   };
-  const blobAuto = (e) => {
-    controls.start("move");
-  };
-  const blobV = {
-    initial: false,
-    move: {
-      y: [
-        -100, -50, 100, -400, -500, -600, -800, 200, -100, -50, -1200, -20, -20,
-        -1200, -100, 400, -40, 100,
-      ],
-      x: [
-        -100, 50, -100, -400, -10, -600, -800, 200, -100, -50, -1200, -20, -20,
-        -1200, -100, 400, -40, 100,
-      ],
-      transition: {
-        duration: 20,
-        delay: 1,
-        ease: "easeInOut",
-        repeat: Infinity,
-        repeatType: "mirror",
-      },
-    },
-  };
+
   const techVariants = {
     hover: {
       // scale: 0.9,
@@ -77,28 +50,20 @@ const TechStack = () => {
     },
   };
 
-  useEffect(() => {
-    sethw({
-      h: ref.current.offsetHeight,
-      w: ref.current.offsetWidth,
-    });
-    controls.start("move");
-  }, []);
+ 
 
   return (
     <motion.div
       className="w-full h-full overflow-hidden font-extrabold flex  relative p-2  bg-black z-30"
       ref={ref}
       onMouseMove={(e) => mouseCo(e)}
-      onMouseLeave={blobAuto}
     >
-      <div className="w-full h-full   absolute tech-gradient top-0 z-10  "></div>
-      <motion.div
+      <div className="w-full h-full   absolute tech-gradient top-0 left-0 z-10  "></div>
+      
+
+      <div
         className="blob w-[300px] h-[300px] z-0   absolute  blur-md  "
         id="blob"
-        animate={controls}
-        initial="initial"
-        variants={blobV}
       >
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -123,7 +88,8 @@ const TechStack = () => {
             ></animate>
           </path>
         </svg>
-      </motion.div>
+      </div>
+     
 
       <motion.div className="text-2xl md:text-9xl p-4 ml-3 w-[100px] md:w-max break-words z-40  ">
         <motion.p className="text-white leading-[200px] tracking-wide">

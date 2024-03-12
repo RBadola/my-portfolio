@@ -36,7 +36,7 @@ const Contact = () => {
     setStatus("Send");
   };
   return (
-    <div className="w-full h-screen flex flex-col  items-center  relative overflow-visible">
+    <div className="w-full h-[100vh] flex flex-col  items-center  relative overflow-visible">
       <Parallex/>
       <motion.div className="absolute w-full h-full bg-gradient-to-b from-black to-[rgba(255,255,255,0.2)]">
         {/* <motion.div className="w-[200px] h-[200px] rounded-full bg-white " initial={{y:0,x:0,opacity:0}} animate={{y:-100,x:200,opacity:1}} transition={{duration:1,type:"spring",repeat:Infinity,repeatType:"mirror"}}></motion.div> */}
