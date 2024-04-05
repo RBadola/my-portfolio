@@ -7,43 +7,17 @@ import { motion, useAnimationControls } from "framer-motion";
 const Project = ({
   id,
   active,
-  changeStatus,
   title,
-  desc,
-  tech,
   image,
-  changeP,
   url,
 }) => {
-  const cs = () => {
-    if (id === "p1") {
-      changeStatus({
-        p1: true,
-        p2: false,
-        p3: false,
-      });
-    } else if (id === "p2") {
-      changeStatus({
-        p1: false,
-        p2: true,
-        p3: false,
-      });
-    } else {
-      changeStatus({
-        p1: false,
-        p2: false,
-        p3: true,
-      });
-    }
-  };
+  
   const elementRef = useRef();
   return (
     <motion.div
-      ref={elementRef}
       id={id}
-      className={twMerge(" w-[600px] aspect-square relative")}
-      onClick={() => changeP(id)}
-    //   initial={{x:"-100%"}} animate={{x:"100%"}} transition={{duration:1}}
+      className={twMerge(" h-[350px] w-2/5   relative shrink-0 ",active && "h-[500px] w-1/2 z-10 translate-x-0"  )}   
+      initial={{opacity:0.5}} animate={{opacity:1}} transition={{duration:1}}
     >
       <img
         src={image}

@@ -7,12 +7,12 @@ import {
   TbBrandReactNative,
 } from "react-icons/tb";
 import { SiExpress, SiMysql, SiTailwindcss } from "react-icons/si";
-import { motion, useAnimationControls } from "framer-motion";
+import { motion, useAnimate, useAnimationControls } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 const TechStack = () => {
   const ref = useRef();
-
+  const [scope, animate] = useAnimate();
   const blob = document.getElementById("blob");
   // const blobS = document.getElementById("blobShadow");
   const mouseCo = (e) => {
@@ -26,43 +26,38 @@ const TechStack = () => {
       },
       { duration: 3000, fill: "forwards" }
     );
-    console.log(e.clientX, e.clientY, rect);
+    // console.log(e.clientX, e.clientY, rect);
   };
 
   const techVariants = {
     hover: {
       // scale: 0.9,
-      y: 10,
+
+      transform: "perspective(10cm) rotateY(30deg)",
       transition: {
         duration: 0.5,
-        type: "spring",
       },
     },
   };
   const techChildVariants = {
     hover: {
-      scale: 1.3,
-      transform: " translateY(-20px)",
+      transform: "perspective(10cm) rotateY(30deg)",
       transition: {
         duration: 0.5,
-        type: "spring",
       },
     },
   };
 
- 
-
   return (
     <motion.div
-      className="w-full h-full overflow-hidden font-extrabold flex  relative p-2  bg-black z-30"
+      className="w-full h-full overflow-hidden font-extrabold flex  relative p-2  bg-black z-50"
       ref={ref}
-      onMouseMove={(e) => mouseCo(e)}
+      // onMouseMove={(e) => mouseCo(e)}
     >
-      <div className="w-full h-full   absolute tech-gradient top-0 left-0 z-10  "></div>
-      
+      <div className="w-full h-full   absolute tech-gradient top-0 left-0 z-20  "></div>
 
-      <div
-        className="blob w-[300px] h-[300px] z-0   absolute  blur-md  "
+      {/* <div
+        className="blob w-[300px] h-[300px] z-10   absolute  blur-md  "
         id="blob"
       >
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -88,8 +83,7 @@ const TechStack = () => {
             ></animate>
           </path>
         </svg>
-      </div>
-     
+      </div> */}
 
       <motion.div className="text-2xl md:text-9xl p-4 ml-3 w-[100px] md:w-max break-words z-40  ">
         <motion.p className="text-white leading-[200px] tracking-wide">
@@ -103,6 +97,7 @@ const TechStack = () => {
             className=" rounded-md md:place-self-end "
             style={{
               transformStyle: "preserve-3d",
+              transformOrigin: "left",
             }}
           >
             <motion.div className="tech_card bg-slate-400">
@@ -116,13 +111,12 @@ const TechStack = () => {
             style={{
               transformStyle: "preserve-3d",
             }}
+            // variants={techVariants}
+            initial={{ transform: "perspective(0cm) rotate(0deg)" }}
+            whileHover={"hover"}
           >
-            <motion.span
-              className="tech_card bg-white overflow-hidden"
-              variants={techVariants}
-              whileHover={"hover"}
-            >
-              <motion.span variants={techChildVariants}>
+            <motion.span className="tech_card bg-white overflow-hidden">
+              <motion.span >
                 <FaReact size={100} />
               </motion.span>
             </motion.span>

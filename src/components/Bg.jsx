@@ -36,6 +36,7 @@ const Bg = () => {
     const handleAnime= (e)=>{
      
       count = count+1
+      console.log(e.target.dataset.index)
       anime({
         targets:".grid-box",       
         translateY:[
@@ -77,7 +78,7 @@ const Bg = () => {
     for (let i = 1; i <= col; i++) {
       for (let j = 1; j <= row; j++) {
         c = c+1
-        let n = Math.floor(Math.random() * 12);
+        // let n = Math.floor(Math.random() * 12);
         sq.push(
           <div
             onMouseUp={handleAnime}
