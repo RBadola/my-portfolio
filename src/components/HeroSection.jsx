@@ -37,11 +37,11 @@ const HeroSection = () => {
         alt="my-image"
       />
       <motion.section className="  z-10 pointer-events-none">
-        <motion.div className=" text-white text-center">
-          <p className=" text-3xl  md:text-6xl">
-            Hi, I am <span className="text-9xl font-Dance bg-clip-text bg-gradient-to-l from-pink-500 to-yellow-400 text-pretty text-transparent font-extrabold">Roshan Badola.</span>
+        <motion.div className=" text-white text-center pointer-events-none">
+          <p className=" text-3xl  md:text-6xl pointer-events-none">
+            Hi, I am <span className=" pointer-events-none text-9xl font-Dance bg-clip-text bg-gradient-to-l from-pink-500 to-yellow-400 text-pretty text-transparent font-extrabold">Roshan Badola.</span>
           </p>
-          <p className="text-4xl">
+          <p className="text-4xl pointer-events-none">
             A passionate web developer looking to showcase my talent and skills
             to all the recruiters out thier.
           </p>

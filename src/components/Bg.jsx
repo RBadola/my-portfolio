@@ -33,10 +33,11 @@ const Bg = () => {
     const colors=[
      " #a8a9ad", "#b5b7bb", "#cccccc", "#d8d8d8", "#757575" , "#afb1ae" 
     ]
-    const handleAnime= (e)=>{
+    const handleAnime= async(e)=>{
      
       count = count+1
       console.log(e.target.dataset.index)
+     setTimeout(()=>{
       anime({
         targets:".grid-box",       
         translateY:[
@@ -57,6 +58,8 @@ const Bg = () => {
           from:e.target.dataset.index
         })
       })
+     },0)
+      
       
     }
   
@@ -75,13 +78,15 @@ const Bg = () => {
         delay:20
       });
     }
+  //  useEffect(()=>{
     for (let i = 1; i <= col; i++) {
       for (let j = 1; j <= row; j++) {
         c = c+1
         // let n = Math.floor(Math.random() * 12);
+        // console.log(index);
         sq.push(
           <div
-            onMouseUp={handleAnime}
+            onMouseDown={handleAnime}
             className="group  grid-box flex items-center  justify-center   transition-all duration-150  "
             data-index={index}
             key={`${i}-${j}`}
@@ -95,6 +100,7 @@ const Bg = () => {
         index++;
       }
     }
+  //  },[])
   
   
  
