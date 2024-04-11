@@ -16,13 +16,24 @@ html {
 }
 
 .tech_card {
-  @apply w-[150px] h-[200px] md:w-44 md:h-48   grid place-content-center text-white text-center;
-  background: rgba(255, 255, 255, 0.25);
+  @apply w-[150px] h-[200px] md:w-44 md:h-48 relative  grid justify-center items-center text-white text-center overflow-hidden cursor-grab;
+  background: rgba(61, 59, 59, 1);
   box-shadow: 0 8px 32px 0 rgba(221, 221, 228, 0.37);
   backdrop-filter: blur(5.5px);
   -webkit-backdrop-filter: blur(5.5px);
   border-radius: 10px;
+  transition: all ;
+  transition-timing-function: ease-in-out;
+  transition-duration: 1000;
+  transform-origin: center;
   border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+
+@keyframes radiate {
+  50%{
+    filter: hue-rotate(350deg);
+  }
 }
 .contact {
   background-image: url("bg3.jpg");
