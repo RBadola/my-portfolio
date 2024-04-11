@@ -56,6 +56,7 @@ const Project = ({
       whileHover="hover"
       transition={{ duration: 1, damping: 0.3, ease: "easeInOut" }}
       onClick={() => moveToCenter(index)}
+      layoutId="card"
     >
       <img
         src={image}
