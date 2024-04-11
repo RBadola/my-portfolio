@@ -60,7 +60,7 @@ const Projects = () => {
   return (
     <motion.div
       layout
-      className="z-0 w-full h-full font-extrabold bg-black p-4 flex flex-col justify-center  items-center relative overflow-hidden gap-7"
+      className="z-0 w-full h-full font-extrabold p-4 flex flex-col justify-center  items-center relative overflow-hidden gap-7"
     >
       <div>
         <motion.p

@@ -50,8 +50,11 @@ const TechStack = () => {
 
   return (
     <motion.div
-      className="w-full h-full overflow-hidden font-extrabold flex  relative p-2  bg-black z-50"
+      className="w-full h-full overflow-hidden font-extrabold flex  relative p-2 bg-black   z-50"
       ref={ref}
+      animate={{
+        backgroundColor:"radial-gradient(circle, rgba(255,0,110,1) 0%, rgba(131,56,236,1) 64%, rgba(58,134,255,1) 100%);"
+      }}
       // onMouseMove={(e) => mouseCo(e)}
     >
       <div className="w-full h-full   absolute tech-gradient top-0 left-0 z-20  "></div>

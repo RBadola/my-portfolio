@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 const HeroSection = () => {
   return (
     <motion.div className="w-full h-full bg-black relative  flex flex-col md:flex-row justify-center items-center px-10 font-extrabold   ">
-      <Bg />
-
       <motion.img
         // initial={{ opacity: 0, scale: 0.5 }}
         // animate={{ opacity: 1, scale: 1 }}

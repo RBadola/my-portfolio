@@ -29,55 +29,21 @@ const Bg = () => {
       <SiMysql size={20} />,
       <SiTailwindcss size={20} />,
     ];
-    let count  = -1
+    
     const colors=[
      " #a8a9ad", "#b5b7bb", "#cccccc", "#d8d8d8", "#757575" , "#afb1ae" 
     ]
-    const handleAnime= async(e)=>{
-     
-      count = count+1
-      console.log(e.target.dataset.index)
-     setTimeout(()=>{
-      anime({
-        targets:".grid-box",       
-        translateY:[
-          {value:-15,ease:"easeOutSine",duration:250},
-          {value:0,ease:"easeInOutQuad",duration:500},
-        ],
-        opacity:[
-          {value:1,ease:"easeOutSine",duration:250},
-          {value:0.5,ease:"easeInOutQuad",duration:500},
-        ],
-        backgroundColor:[
-          {value:colors[count % colors.length - 1],ease:"easeOutSine",duration:250},
-          
-          {value:"#000000",ease:"easeOutSine",duration:250},
-        ],
-        delay:anime.stagger(300,{
-          grid:[12,7],
-          from:e.target.dataset.index
-        })
-      })
-     },0)
+   
       
       
-    }
+    
   
    
     let index = 0;
     const row = 12;
     const col = 7;
     let c=1
-    function animateButton(e, bg ,duration, elasticity) {
-  
-      anime({
-        targets: e.target,
-        color:bg,
-        duration: duration,
-        elasticity: elasticity,
-        delay:20
-      });
-    }
+
   //  useEffect(()=>{
     for (let i = 1; i <= col; i++) {
       for (let j = 1; j <= row; j++) {
@@ -86,7 +52,7 @@ const Bg = () => {
         // console.log(index);
         sq.push(
           <div
-            onMouseDown={handleAnime}
+            
             className="group  grid-box flex items-center  justify-center   transition-all duration-150  "
             data-index={index}
             key={`${i}-${j}`}
