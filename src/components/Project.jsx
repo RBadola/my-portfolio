@@ -11,18 +11,44 @@ const Project = ({
   image,
   url,
   currentIndex,
-  index
+  index,
+  setCurrentIndex,
+  setProjects,
+  project
 }) => {
   let rightE = index > currentIndex 
   let leftE = index< currentIndex
-  // let active=true
-  const elementRef = useRef();
+  const moveToCenter =(index)=>{
+    setProjects(()=>{
+      let p=[project]
+      let c = p.splice(index,1)
+      p.splice(currentIndex,0,c)
+      return p
+    })
+  }
+  
   return (
     <motion.div
       id={id}
-      className={twMerge(" h-[500px] w-2/5 bg-transparent relative shrink-0 ",leftE&&"translate-x-96 ",rightE&&"-translate-x-96  ",active && " h-[500px] w-1/2 z-10 translate-x-0"  )}   
-      initial={{opacity:0.5}} animate={{opacity:1}} transition={{duration:1}}
-    >
+      style={{zIndex:   rightE  &&  -index}}
+      className={twMerge(` h-[350px] w-1/4 rounded-2xl relative shrink-0  shadow-md shadow-[white] `,active && ` h-[400px] w-1/3 `  )}   
+      initial={{
+        opacity:0,    
+        y:800  
+      }}
+         animate={{
+          opacity:1,
+          x:active?0:leftE?300/(1+index):300/(index-5),
+          y:0,
+          scale:active?1:leftE?1-(0.1*(currentIndex-index)):1-(0.1*(index-currentIndex)),
+          perspective:2000,
+          rotateX:active?0:leftE?40:-40,
+          rotateY:active?0:leftE?20:20,
+         }}
+         whileHover={{y:-10}}
+         transition={{duration:0.7,damping:0.3,ease:"easeInOut"}}
+         onClick={()=>moveToCenter(index)}
+      >
       <img
         src={image}
         className="w-full h-full object-cover  rounded-2xl absolute top-0 left-0"

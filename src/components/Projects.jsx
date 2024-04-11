@@ -1,17 +1,8 @@
 import { useState } from "react";
-import { CiShare1 } from "react-icons/ci";
 import Project from "./Project";
-import { twMerge } from "tailwind-merge";
-import { motion, useAnimationControls } from "framer-motion";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const Projects = () => {
-  const [activeTab, setactiveTab] = useState({
-    p1: true,
-    p2: false,
-    p3: false,
-    p4: false,
-  });
+
   const ProjectData = [
     {
       title: "Write On",
@@ -60,43 +51,13 @@ const Projects = () => {
     },
     
   ];
-  // const [prev, setprev] = useState(ProjectData.length-1);
   const [currentIndex, setCurrentIndex] = useState(Math.floor(ProjectData.length/2));
-  // const [next, setnext] = useState(1);
-  
+  const [projects,setProjects] = useState(...ProjectData)
   // eslint-disable-next-line no-unused-vars
 
-  const handlePrevious = () => {
-    let p =  prev
-    setnext(currentIndex)
-    setCurrentIndex(prev)
-    setprev(()=>prev > 0? prev -1:ProjectData.length-1)
-    console.log(prev,currentIndex,next);
-
-  };
-
-  const handleNext = () => {
-   
-    console.log("C",currentIndex,next,(next + 1) % ProjectData.length)
-    setprev(currentIndex)
-    setCurrentIndex(next)
-    setnext(()=>(next + 1) % ProjectData.length)
-    // console.log(prev,"C",c,next);
-  };
-
   return (
-    <div className=" w-full h-5/6 md:h-full font-extrabold bg-black p-4 flex flex-col md:flex-row  justify-center  items-center relative overflow-hidden gap-7">
-      {/* <Project
-        key={ProjectData[prev].index}
-        id={ProjectData[prev].id}
-        title={ProjectData[prev].title}
-        desc={ProjectData[prev].desc}
-        url={ProjectData[prev].url}
-        tech={ProjectData[prev].tech}
-        image={ProjectData[prev].img}
-        active={false}
-        leftE="true"
-      /> */}
+    <div className="z-0 w-full h-5/6 md:h-full font-extrabold bg-black p-4 flex flex-col md:flex-row  justify-center  items-center relative overflow-hidden gap-7">
+      
       {
         ProjectData.map((proj,index)=>{
          return <Project
@@ -109,36 +70,15 @@ const Projects = () => {
             url={proj?.url}
             tech={proj?.tech}
             image={proj?.img}
+            project={projects}
+            setProjects={setProjects}
+            setCurrentIndex={setCurrentIndex}
             active={index === Math.floor(ProjectData.length/2)?true:false}
           />
         })
       }
 
-      {/* <Project
-        key={ProjectData[next].index}
-        id={ProjectData[next].id}
-        title={ProjectData[next].title}
-        desc={ProjectData[next].desc}
-        url={ProjectData[next].url}
-        tech={ProjectData[next].tech}
-        image={ProjectData[next].img}
-        active={false}
-        rightE={true}
-      /> */}
-      {/* <div
-        onClick={handlePrevious}
-        className="bg-gradient-to-b from-black via-transparent to-black text-white h-full flex justify-center items-center absolute top-0 left-0 cursor-pointer"
-      >
-        <IoIosArrowBack size={100} />
-      </div>
-      <div
-        onClick={handleNext}
-        className="bg-gradient-to-b from-black via-transparent to-black text-white h-full flex justify-center items-center absolute top-0 right-0 cursor-pointer"
-      >
-        <IoIosArrowForward size={100} />
-      </div> */}
-
-      {/* </motion.div> */}
+      
     </div>
   );
 };
