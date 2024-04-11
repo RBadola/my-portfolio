@@ -58,19 +58,11 @@ const Projects = () => {
       id: "p5",
       index: 4,
     },
-    {
-      title: "Laptop Break Reminder",
-      desc: "A Python application that alerts a person to take a break, if they have been using their laptop for too long or are not blinking enough. The eyes can also get dry and irritated during long stretches of screen use this application aims to reduce the issues caused by dry eyes.",
-      url: "https://github.com/RBadola/BlinkTracker",
-      tech: ["Python", "OpenCv", "dlib", "Win10Toast"],
-      img: "p3.png",
-      id: "p6",
-      index: 5,
-    },
+    
   ];
-  const [prev, setprev] = useState(ProjectData.length-1);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [next, setnext] = useState(1);
+  // const [prev, setprev] = useState(ProjectData.length-1);
+  const [currentIndex, setCurrentIndex] = useState(Math.floor(ProjectData.length/2));
+  // const [next, setnext] = useState(1);
   
   // eslint-disable-next-line no-unused-vars
 
@@ -93,8 +85,8 @@ const Projects = () => {
   };
 
   return (
-    <div className="w-full h-5/6 md:h-full font-extrabold bg-black p-4 flex flex-col md:flex-row  justify-center  items-center relative overflow-hidden gap-7">
-      <Project
+    <div className=" w-full h-5/6 md:h-full font-extrabold bg-black p-4 flex flex-col md:flex-row  justify-center  items-center relative overflow-hidden gap-7">
+      {/* <Project
         key={ProjectData[prev].index}
         id={ProjectData[prev].id}
         title={ProjectData[prev].title}
@@ -103,19 +95,26 @@ const Projects = () => {
         tech={ProjectData[prev].tech}
         image={ProjectData[prev].img}
         active={false}
-      />
-      <Project
-        key={ProjectData[currentIndex].index}
-        id={ProjectData[currentIndex].id}
-        title={ProjectData[currentIndex].title}
-        desc={ProjectData[currentIndex].desc}
-        url={ProjectData[currentIndex].url}
-        tech={ProjectData[currentIndex].tech}
-        image={ProjectData[currentIndex].img}
-        active={true}
-      />
+        leftE="true"
+      /> */}
+      {
+        ProjectData.map((proj,index)=>{
+         return <Project
+            key={index}
+            index={index}
+            currentIndex={currentIndex}
+            id={proj?.id}
+            title={proj?.title}
+            desc={proj?.desc}
+            url={proj?.url}
+            tech={proj?.tech}
+            image={proj?.img}
+            active={index === Math.floor(ProjectData.length/2)?true:false}
+          />
+        })
+      }
 
-      <Project
+      {/* <Project
         key={ProjectData[next].index}
         id={ProjectData[next].id}
         title={ProjectData[next].title}
@@ -124,8 +123,9 @@ const Projects = () => {
         tech={ProjectData[next].tech}
         image={ProjectData[next].img}
         active={false}
-      />
-      <div
+        rightE={true}
+      /> */}
+      {/* <div
         onClick={handlePrevious}
         className="bg-gradient-to-b from-black via-transparent to-black text-white h-full flex justify-center items-center absolute top-0 left-0 cursor-pointer"
       >
@@ -136,7 +136,7 @@ const Projects = () => {
         className="bg-gradient-to-b from-black via-transparent to-black text-white h-full flex justify-center items-center absolute top-0 right-0 cursor-pointer"
       >
         <IoIosArrowForward size={100} />
-      </div>
+      </div> */}
 
       {/* </motion.div> */}
     </div>

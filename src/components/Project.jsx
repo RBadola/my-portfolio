@@ -10,13 +10,17 @@ const Project = ({
   title,
   image,
   url,
+  currentIndex,
+  index
 }) => {
-  
+  let rightE = index > currentIndex 
+  let leftE = index< currentIndex
+  // let active=true
   const elementRef = useRef();
   return (
     <motion.div
       id={id}
-      className={twMerge(" h-[350px] w-2/5   relative shrink-0 ",active && "h-[500px] w-1/2 z-10 translate-x-0"  )}   
+      className={twMerge(" h-[500px] w-2/5 bg-transparent relative shrink-0 ",leftE&&"translate-x-96 ",rightE&&"-translate-x-96  ",active && " h-[500px] w-1/2 z-10 translate-x-0"  )}   
       initial={{opacity:0.5}} animate={{opacity:1}} transition={{duration:1}}
     >
       <img
