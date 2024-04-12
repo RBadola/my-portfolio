@@ -3,38 +3,6 @@ import { animate, motion } from "framer-motion";
 // import './BluuNext-Bold.ttf'
 import Hello from "../assets/hello.svg";
 const HeroSection = () => {
-  let ar = [];
-  let n = 12;
-
-  // // First loop
-  // for (let i = 6; i <= n; i++) {
-  //     // let str =
-  //     ar.push((<motion.div
-  //       key={i}
-  //       className="w-[50px] h-[50px] relative   before:absolute before:-z-0 before:bg-[rgb(15,15,15)] before:inset-[0.5px] before:content-center  "
-  //     ></motion.div>))
-  // }
-
-  // // // Middle line
-  // // console.log("*".repeat(n * 2 - 1));
-
-  // // Second loop
-  // for (let i = n - 1; i >= 6; i--) {
-  //   // let str =
-  //    ar.push((<motion.div
-  //     key={i}
-  //     className="w-[50px] h-[50px] relative   before:absolute before:-z-0 before:bg-[rgb(15,15,15)] before:inset-[0.5px] before:content-center  "
-  //   ></motion.div>));
-  // }
-
-  for (let i = 0; i < 120; i++) {
-    ar.push(
-      <motion.div
-        key={i}
-        className="w-[50px] h-[50px] relative   before:absolute before:-z-0 before:bg-[rgb(15,15,15)] before:inset-[0.5px] before:content-center  "
-      ></motion.div>
-    );
-  }
   const parentV = {
     initial:{
       opacity:0
@@ -56,12 +24,40 @@ const HeroSection = () => {
       y:0
     }
   };
+  const bgV={
+    initial:{
+      y:-1000
+    },
+    animate:{
+      y:0,
+      transition:{
+        duration:2,
+        type:"spring"
+      }
+    }
+  }
+
+  let ar = [];
+  let n = 12;
+
+
+  for (let i = 0; i < n; i++) {
+    ar.push(
+      <motion.div
+        key={i}
+        className={`w-[100px] h-screen relative bg-gray-600`   }
+        variants={bgV}
+      ></motion.div>
+    );
+  }
+  
   return (
     <motion.div
-      className="w-full h-screen  relative bg-gray-400 flex flex-col md:flex-row gap-x-2 justify-center items-center px-10 font-bold overflow-hidden text-white z-0 hero_gradient "
-      transition={{staggerChildren:0.2}}
+      className="w-full h-screen  relative  flex flex-col md:flex-row gap-x-2 justify-center items-center px-10 font-bold overflow-hidden text-white   "
+      transition={{staggerChildren:0.2,}}
     >
-      <motion.div initial="initial" animate="animate" variants={parentV} className="z-10">
+      <motion.div className="absolute inset-0 grid grid-cols-12  place-content-center z-10 place-items-center" initial="initial" animate="animate"  variants={parentV} >{ar}</motion.div>
+      <motion.div initial="initial" animate="animate" variants={parentV} className="z-20">
         <motion.div className="flex gap-2 items-center" variants={childV}>
           <motion.p className="text-7xl">Hi!</motion.p>
           <motion.span
@@ -154,12 +150,12 @@ const HeroSection = () => {
         </motion.button>
       </motion.div>
 
-      <motion.div className="relative flex items-center  w-[500px] h-[600px] justify-center   " initial={{x:800}} animate={{x:0}} transition={{duration:1}}>
-        <motion.div className="absolute inset-0 -z-30 backdrop-blur-sm  bg-gradient-to-l from-pink-500 to-yellow-400   grid grid-cols-10 grid-rows-12  ">
+      <motion.div className="relative flex items-center  w-[500px] h-[600px] justify-center   " initial={{x:800,opacity:0}} animate={{x:0,opacity:1}} transition={{duration:1}}>
+        <motion.div className="absolute inset-0 backdrop-blur-sm  bg-gradient-to-l z-0 from-pink-500 to-yellow-400   rotate-12 ">
           
         </motion.div>
         <motion.img
-          className="w-[300px] h-max   object-contain rounded-md z-10   "
+          className="w-[300px] h-max   object-contain rounded-md z-20 relative "
           src="portrait.avif"
           alt="my-image"
         />

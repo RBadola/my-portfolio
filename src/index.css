@@ -58,14 +58,14 @@ html {
 }
 .hero_gradient {
   background-image: repeating-linear-gradient(
-      45deg,
+      90deg,
       transparent 4px,
       rgba(0, 0 ,0 ,0.8) 40px,
       transparent 50px
 
     ),
     repeating-linear-gradient(
-      -45deg,
+      0deg,
       transparent 4px,
       rgba(0, 0 ,0 ,0.8) 40px,
       transparent 50px
