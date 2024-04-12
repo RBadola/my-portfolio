@@ -67,7 +67,7 @@ const Project = ({
           "  backdrop-blur-sm h-full w-full flex flex-col justify-center items-center  font-white rounded-2xl  text-white"
         )}
       >
-        <h1 className="text-5xl text-center ">{title}</h1>
+        <h1 className="text-5xl text-center ">{title.toUpperCase()}</h1>
         <div className="flex gap-x-3">
           <button className="hover:scale-110 hover:bg-white w-max self-center justify-self-center transition-all ease-in duration-100 rounded-2xl border-2  border-white hover:text-black p-2">
             <a target="_blank" rel="noreferrer" href={url}>
