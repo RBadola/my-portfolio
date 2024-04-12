@@ -9,7 +9,7 @@ import { IoMdDoneAll, IoMdClose } from "react-icons/io";
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { twMerge } from "tailwind-merge";
-import { motion} from "framer-motion";
+import { motion } from "framer-motion";
 import Parallex from "../utils/Parallex";
 
 const Contact = () => {
@@ -35,15 +35,49 @@ const Contact = () => {
       );
     setStatus("Send");
   };
+  const parentV = {
+    initial: {
+      y: 400,
+      opacity: 0,
+      flexDirection:"row",
+      alignItems:"center",
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+      
+      transition: {
+        duration: 1,
+        staggerChildren: 0.5,
+        when: "beforeChildren",
+      },
+    },
+  };
+  const headingV = {
+    initial:i=> ({
+      x:-500,
+     
+    }),
+    animate:i=>( {
+      x:0,
+    }),
+  };
   return (
-    <div className="w-full h-[100vh] flex flex-col  items-center  relative overflow-hidden">
-      {/* <Parallex/> */}
-      <motion.div className="absolute w-full h-full bg-gradient-to-b from-black to-[rgba(255,255,255,0.2)]">
-        {/* <motion.div className="w-[200px] h-[200px] rounded-full bg-white " initial={{y:0,x:0,opacity:0}} animate={{y:-100,x:200,opacity:1}} transition={{duration:1,type:"spring",repeat:Infinity,repeatType:"mirror"}}></motion.div> */}
+    <motion.div className="w-full h-[100vh]   relative overflow-hidden">
+      <motion.div
+        className="text-9xl w-full  text-white font-Nunito font-extrabold my-auto  z-10 pl-4"
+        initial="initial"
+        animate="animate"
+        variants={parentV}
+        layout
+      >
+        <motion.p custom={0} variants={headingV}>REACH</motion.p>
+        <motion.p custom={1} variants={headingV}>OUT</motion.p>
+        <motion.p custom={2} variants={headingV}>TO</motion.p>
+        <motion.p custom={3} variants={headingV}>ME</motion.p>
       </motion.div>
-      <p className="text-9xl text-white  font-bold mb-10 font-mono z-10">Reach Out To Me</p>
-      <motion.div className="w-full  pt-6 flex flex-col md:flex-row  justify-center items-center relative z-50 ">
-        <form
+      <motion.div  className="w-full  h pt-6 flex flex-col md:flex-row  justify-center items-center absolute inset-0 z-50 ">
+        <motion.form
           ref={form}
           onSubmit={sendEmail}
           className=" w-10/12 md:w-2/5 text-gray-500 rounded-md py-6 text-lg px-4 gap-2 font-Nunito flex flex-col  bg-slate-100"
@@ -84,15 +118,19 @@ const Contact = () => {
           >
             {Status}
           </button>
-        </form>
-        <motion.div initial={{y:150}} animate={{y:[150,-170,80,-130,150,0]}} transition={{
-          duration:1,
-          // type:"spring",
-          ease:"circInOut"
-        }}
-         className="  bg-rose-400 w-4/5  md:w-1/4 md:h-[350px] mb-11 relative md:absolute -top-4 md:text-lg  md:top-24 p-2 md:p-9 flex flex-col md:gap-y-3 text-white font-bold md:left-2/3 rounded-md z-50  ">
+        </motion.form>
+        {/* <motion.div
+          // initial={{ y: 150 }}
+          // animate={{ y: [150, -170, 80, -130, 150, 0] }}
+          transition={{
+            duration: 1,
+            // type:"spring",
+            ease: "circInOut",
+          }}
+          className="  bg-rose-400 w-4/5  md:w-1/4 md:h-[350px] mb-11 absolute  md:text-lg  inset-0 p-2 md:p-9 flex flex-col md:gap-y-3 text-white font-bold  rounded-md z-50  "
+        >
           <div className="absolute rotate-90 right-3 -top-10 md:rotate-0 md:top-14 md:-left-16 ">
-            {/*  */}
+            
             <div className=" w-[100px] h-[30px] rounded-l-xl bg-rose-400   "></div>
             <div className="  w-[100px] h-[30px] rounded-xl  bg-slate-100"></div>
             <div className=" w-[70px] h-[30px] absolute right-2 md:right-0 md:left-5 rounded-l-xl  bg-rose-400 -z-10"></div>
@@ -147,9 +185,9 @@ const Contact = () => {
               github.com/RBadola
             </a>
           </p>
-        </motion.div>
+        </motion.div> */}
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

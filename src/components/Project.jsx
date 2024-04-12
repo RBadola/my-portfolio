@@ -32,7 +32,7 @@ const Project = ({
       y: 800,
       perspective: 0,
     },
-    act: {opacity: 1,x: 0,y: 0, scale: 1,perspective: 2000,rotateX: 0, rotateX: 0},
+    act: {opacity: 1,x: 0,y: 0, scale: 1,perspective: 2000,rotateX: 0, rotateY: 0},
     left: {opacity: 1,x:  300 / (1 + index),y: 0, scale: 1 - 0.1 * (currentIndex - index),perspective: 2000,rotateX:40, rotateY: 20},
     right: {opacity: 1,x: 300 / (index - 5),y:0, scale: 1 - 0.1 * (index - currentIndex),perspective: 2000,rotateX:-40,rotateY: 20},
     hover:{
