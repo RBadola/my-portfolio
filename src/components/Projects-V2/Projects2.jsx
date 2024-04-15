@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Project from "./Project2";
 import { motion,  } from "framer-motion";
 
@@ -41,34 +41,23 @@ const ProjectsV2 = () => {
       id: "p4",
       index: 3,
     },
-    {
-      title: "Edit It",
-      desc: "Built a intuative web based image editor. That offers a variety of features to users to fullfill thier image editing needs on the go. ",
-      url: "https://edititv2.web.app/",
-      tech: ["React.Js", "TaiwindCss", "Firebase"],
-      img: "p2.png",
-      id: "p5",
-      index: 4,
-    },
-    {
-      title: "Laptop Break Reminder",
-      desc: "A Python application that alerts a person to take a break, if they have been using their laptop for too long or are not blinking enough. The eyes can also get dry and irritated during long stretches of screen use this application aims to reduce the issues caused by dry eyes.",
-      url: "https://github.com/RBadola/BlinkTracker",
-      tech: ["Python", "OpenCv", "dlib", "Win10Toast"],
-      img: "p3.png",
-      id: "p6",
-      index: 5,
-    },
-  ])
-  // eslint-disable-next-line no-unused-vars
 
+  ])
+  const  [first, setfirst] = useState(false) 
+  // eslint-disable-next-line no-unused-vars
+useEffect(()=>{
+  let w = window.innerWidth
+  if(w<600){
+    setfirst(true)
+  }
+},[])
   return (
-    <div className="w-full h-full font-extrabold bg-black p-4  flex    relative mb-10  ">
-      <motion.div initial={{rotateZ:0,opacity:0,scale:0}} animate={{rotateZ:-90,opacity:1,scale:1}} transition={{duration:1,delay:0.5,type:"tween"}} className="text-white  flex flex-col leading-8 tracking-wider items-center  absolute z-0 inset-0 -left-96      whitespace-nowrap ">
-        <span className="text-9xl  ">PROJECTS</span>
+    <div className="w-full h-full  font-extrabold bg-black p-4  flex flex-col md:flex-row overflow-hidden  relative mb-10  ">
+      <motion.div initial={{rotateZ:0,opacity:0,scale:0}} animate={{rotateZ:first?0:-90,opacity:1,scale:1}} transition={{duration:1,delay:0.5,type:"tween"}} className="text-white   flex flex-col items-center md:leading-8 md:tracking-wider   md:absolute  md:inset-0 md:-left-96   ">
+        <span className="text-6xl md:text-9xl">PROJECTS</span>
         <p className="text-4xl">that i have built</p>
       </motion.div>
-      <motion.div className=" w-full h-full  relative flex items-center justify-center flex-grow-1 ">
+      <motion.div className=" w-full h-full md:h-full  relative flex items-center md:justify-center flex-grow-1 ">
         {projects.map((pro, index) => {
           let canGrab = index === 0;
           return (
@@ -82,6 +71,8 @@ const ProjectsV2 = () => {
               image={pro?.img}
               active={true}
               index={index}
+              mobile={first}
+
               projects={projects}
               setProjects={setProjects}
               canGrab={canGrab}

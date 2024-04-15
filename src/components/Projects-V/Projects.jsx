@@ -60,11 +60,11 @@ const Projects = () => {
   return (
     <motion.div
       layout
-      className="z-0 w-full h-full font-extrabold p-4 flex flex-col justify-center  items-center relative overflow-hidden gap-7"
+      className=" w-full  font-extrabold md:p-4 flex flex-col my-2  items-center relative overflow-hidden gap-7"
     >
       <div>
         <motion.p
-          className="text-8xl text-white "
+          className=" text-6xl md:text-8xl text-white "
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
@@ -72,7 +72,7 @@ const Projects = () => {
           PROJECTS
         </motion.p>
       </div>
-      <motion.div layout className="z-0 w-full h-full  flex flex-col md:flex-row  justify-center  items-center relative overflow-hidden gap-7 ">
+      <motion.div layout className="z-0 w-full md:h-full  flex  md:flex-row  justify-center  relative   gap-7 ">
         {projects.map((proj, index) => {
           return (
             <Project
@@ -93,6 +93,13 @@ const Projects = () => {
           );
         })}
       </motion.div>
+      <div>
+        {projects.map((t,i)=>{
+          return (
+              <input key={i} type="radio" value={i}  name="tech"  className="mx-1" onChange={(e)=>e.target.value} checked={i === Math.floor(projects.length / 2) ? true : false} />
+          )
+        })}
+      </div>
     </motion.div>
   );
 };

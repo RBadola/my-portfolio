@@ -4,65 +4,74 @@ import { animate, motion } from "framer-motion";
 import Hello from "../assets/hello.svg";
 const HeroSection = () => {
   const parentV = {
-    initial:{
-      opacity:0
+    initial: {
+      opacity: 0,
     },
-    animate:{
-      opacity:1,
-      transition:{
-        duration:1,
-        when:"beforeChildren",
-        staggerChildren:0.3
-      }
-    }
+    animate: {
+      opacity: 1,
+      transition: {
+        duration: 1,
+        when: "beforeChildren",
+        staggerChildren: 0.3,
+      },
+    },
   };
   const childV = {
-    initial:{
-      y:1000
+    initial: {
+      y: 1200,
     },
-    animate:{
-      y:0
-    }
+    animate: {
+      y: 0,
+    },
   };
-  const bgV={
-    initial:{
-      y:-1000
+  const bgV = {
+    initial: {
+      y: -1000,
     },
-    animate:{
-      y:0,
-      transition:{
-        duration:2,
-        type:"spring"
-      }
-    }
-  }
+    animate: {
+      y: 0,
+      transition: {
+        duration: 2,
+        type: "spring",
+      },
+    },
+  };
 
   let ar = [];
   let n = 12;
-
 
   for (let i = 0; i < n; i++) {
     ar.push(
       <motion.div
         key={i}
-        className={`w-[100px] h-screen relative bg-gray-600`   }
+        className={`w-[100px] h-screen relative bg-gray-600`}
         variants={bgV}
       ></motion.div>
     );
   }
-  
+
   return (
     <motion.div
-      className="w-full h-screen  relative  flex flex-col md:flex-row gap-x-2 justify-center items-center px-10 font-bold overflow-hidden text-white   "
-      transition={{staggerChildren:0.2,}}
+      className=" relative  flex flex-col md:flex-row gap-x-2 md:justify-center items-center px-10 font-bold overflow-hidden text-white   "
+      transition={{ staggerChildren: 0.2 }}
     >
-      <motion.div className="absolute inset-0 grid grid-cols-12  place-content-center z-10 place-items-center" initial="initial" animate="animate"  variants={parentV} >{ar}</motion.div>
-      <motion.div initial="initial" animate="animate" variants={parentV} className="z-20">
+      <motion.div
+        className="absolute inset-0 grid grid-cols-12 md:grid-cols-12  place-content-center z-10 place-items-center"
+        initial="initial"
+        animate="animate"
+        variants={parentV}
+      >
+        {ar}
+      </motion.div>
+      <motion.div
+        initial="initial"
+        animate="animate"
+        variants={parentV}
+        className="z-20 h-full"
+      >
         <motion.div className="flex gap-2 items-center" variants={childV}>
           <motion.p className="text-7xl">Hi!</motion.p>
-          <motion.span
-            style={{ backgroundPosition: "bottom" }}
-          >
+          <motion.span>
             <svg
               width="100px"
               height="100px"
@@ -71,7 +80,7 @@ const HeroSection = () => {
               xmlns:xlink="http://www.w3.org/1999/xlink"
               aria-hidden="true"
               role="img"
-              class="iconify iconify--noto"
+              className="iconify iconify--noto"
               preserveAspectRatio="xMidYMid meet"
             >
               <radialGradient
@@ -82,9 +91,9 @@ const HeroSection = () => {
                 gradientTransform="scale(1 -1) rotate(45 506.867 1318.897)"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset=".353" stop-color="#ffca28"></stop>
+                <stop offset=".353" stopColor="#ffca28"></stop>
 
-                <stop offset=".872" stop-color="#ffb300"></stop>
+                <stop offset=".872" stopColor="#ffb300"></stop>
               </radialGradient>
 
               <path
@@ -129,38 +138,46 @@ const HeroSection = () => {
           </motion.span>
         </motion.div>
         <motion.div variants={childV}>
-        <motion.span  className="text-7xl ">I am </motion.span>
-        <motion.span className=" pointer-events-none text-9xl font-Dance bg-clip-text bg-gradient-to-l from-pink-500 to-yellow-400 text-pretty text-transparent font-extrabold">
-          Roshan Badola
-        </motion.span>
+          <motion.span className="text-7xl ">I am </motion.span>
+          <motion.span className=" pointer-events-none text-9xl font-Dance bg-clip-text bg-gradient-to-l from-pink-500 to-yellow-400 text-pretty text-transparent font-extrabold">
+            Roshan Badola
+          </motion.span>
         </motion.div>
-        <motion.p variants={childV}  className="text-5xl font-semibold ">
+        <motion.div
+          className="relative flex items-center   md:w-[500px] md:h-[600px] justify-center   "
+          initial={{ x: 800, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          {/* <motion.div className="absolute inset-0 backdrop-blur-sm  bg-gradient-to-l z-0 from-pink-500 to-yellow-400   rotate-12 ">
+          
+        </motion.div> */}
+          <motion.img
+            className="w-[300px] h-max   object-contain rounded-md z-20 relative "
+            src="portrait.avif"
+            alt="my-image"
+          />
+        </motion.div>
+        <motion.p
+          variants={childV}
+          className="text-3xl md:text-5xl font-semibold  "
+        >
           The FullStack Developer You Need
         </motion.p>
         <motion.button
-        variants={childV} 
+          variants={childV}
           className="bg-gradient-to-l from-pink-500 to-violet-400 rounded-md py-1 px-2 my-1 text-center"
           whileHover={{ y: -3, scale: 1.1 }}
-          onClick={()=>window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: 'smooth'
-          })}
+          onClick={() =>
+            window.scrollTo({
+              top: document.body.scrollHeight,
+              behavior: "smooth",
+            })
+          }
         >
-          <motion.span >Hire Me</motion.span>
+          <motion.span>Hire Me</motion.span>
         </motion.button>
       </motion.div>
-
-      <motion.div className="relative flex items-center  w-[500px] h-[600px] justify-center   " initial={{x:800,opacity:0}} animate={{x:0,opacity:1}} transition={{duration:1}}>
-        <motion.div className="absolute inset-0 backdrop-blur-sm  bg-gradient-to-l z-0 from-pink-500 to-yellow-400   rotate-12 ">
-          
-        </motion.div>
-        <motion.img
-          className="w-[300px] h-max   object-contain rounded-md z-20 relative "
-          src="portrait.avif"
-          alt="my-image"
-        />
-      </motion.div>
-    
     </motion.div>
   );
 };

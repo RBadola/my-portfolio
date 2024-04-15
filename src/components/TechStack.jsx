@@ -7,12 +7,14 @@ import {
   TbBrandReactNative,
 } from "react-icons/tb";
 import { SiExpress, SiMysql, SiTailwindcss } from "react-icons/si";
-import { motion, useAnimate, useAnimationControls } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 const TechStack = () => {
   const ref = useRef();
-
+  const isInView = useInView(ref,{amount:0.2,once:true})
+  const techRef  = useRef()
+  const techView = useInView(techRef,{root:ref})
   const tech = [
     <BiLogoMongodb size={100} />,
     <FaReact size={100} />,
@@ -31,10 +33,13 @@ const TechStack = () => {
   const variant = {
     initial: {
       opacity: 0,
+      x:2500,
     },
     animate: {
       opacity: 1,
+      x:isInView? 0:2500 ,
       transition: {
+        duration:1,
         type: "spring",
         stiffness: 300,
         staggerChildren: 0.05,
@@ -54,18 +59,16 @@ const TechStack = () => {
     },
   };
   const constraintsRef = useRef(null);
-useEffect(()=>{
-console.log(constraintsRef);
-},[])
+
   return (
     <motion.div
-      className="w-full  overflow-hidden   font-extrabold flex flex-col md:flex-row  relative p-2 px-8 bg-black   z-50"
+      className="w-full  overflow-hidden   font-extrabold flex flex-col md:flex-row  relative p-2 px-6 bg-black   z-50"
       ref={ref}
     >
       <motion.div
-        className="text-2xl md:text-9xl p-4 ml-3  z-40 flex-1 "
-        initial={{ x: -1500 }}
-        animate={{ x: 0 }}
+        className="text-7xl md:text-9xl  md:p-4 md:ml-3  text-left   flex-1 "
+        // initial={{ x: -1500 }}
+        animate={{ x:isInView? 0:-1500 }}
         transition={{
           duration: 0.3,
           type: "spring",
@@ -73,22 +76,24 @@ console.log(constraintsRef);
           stiffness: 300,
         }}
       >
-        <motion.p className="text-white leading-[200px] tracking-wide">
+        <motion.p className="text-white  md:leading-[200px] md:tracking-wide">
           TECH
         </motion.p>
-        <motion.span className="text-white leading-[200px]">I KNOW</motion.span>
+        <motion.span className="text-white md:leading-[200px]">I KNOW</motion.span>
       </motion.div>
+
+
       <motion.div
-        className=" w-full h-screen  grid grid-cols-2 md:grid-cols-4 grid-rows-6 md:grid-rows-3  flex-2  place-items-center bg-white  rounded-md relative z-40 m-auto  bg-gradient-to-l from-pink-500 to-yellow-400 text-pretty "
+        className=" w-full h-full md:h-screen  grid grid-cols-2 md:grid-cols-4 grid-rows-6 gap-y-3 p-2 md:grid-rows-3  flex-2  place-items-center   rounded-md relative z-40 m-auto  bg-gradient-to-l from-pink-500 to-yellow-400  "
         initial="initial"
         animate="animate"
         variants={variant}
-        ref={constraintsRef}
+        ref={techRef}
       >
         {tech.map((t, i) => {
           return (
             <motion.div
-              className="tech_card even:translate-y-3 "
+              className="tech_card "
               variants={childVariant}
               drag
               whileDrag={{ scale: 0.8 }}

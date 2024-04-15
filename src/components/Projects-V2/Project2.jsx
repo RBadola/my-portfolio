@@ -4,10 +4,11 @@ import { twMerge } from "tailwind-merge";
 import { motion, useAnimationControls } from "framer-motion";
 
 // eslint-disable-next-line react/prop-types, no-unused-vars
-const Project = ({ id, active, title, image, url, index ,canGrab,setProjects,projects}) => {
+const Project = ({ id, active, title, image, url, index ,canGrab,setProjects,projects,mobile}) => {
 
 
   const CARD_X_OFFSET = 70;
+  const CARD_X2_OFFSET = -200;
   const CARD_Y_OFFSET = 20;
   const SCALE_FACTOR = 0.03;
   const moveToEnd=(index)=>{
@@ -22,8 +23,7 @@ const Project = ({ id, active, title, image, url, index ,canGrab,setProjects,pro
     <motion.div
       id={id}
       className={twMerge(
-        `h-[350px] w-2/5 shrink-0 absolute shadow-sm shadow-[white] overflow-hidden rounded-2xl  `,
-        active && "h-[500px] w-1/2"
+        " shrink-0 relative md:absolute shadow-sm shadow-[white] overflow-hidden rounded-2xl h-[300px] w-3/4 md:h-[500px] md:w-1/2"
       )}
       animate={{
         translateX: index * CARD_X_OFFSET,

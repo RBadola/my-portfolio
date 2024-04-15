@@ -47,8 +47,8 @@ const Project = ({
       id={id}
       style={{ zIndex: rightE && -index }}
       className={twMerge(
-        ` h-[350px] w-1/4 rounded-2xl relative shrink-0  shadow-md shadow-[white]  `,
-        active && ` h-[400px] w-1/3 `
+        ` h-[350px] w-3/4 md:w-1/4 rounded-2xl relative shrink-0  shadow-md shadow-[white]  `,
+        active && `h-[350px] w-4/5 md:h-[400px] md:w-1/3 `
       )}
       initial="initial"
       animate={active ?"act":leftE?"left":"right"}
