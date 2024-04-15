@@ -63,9 +63,9 @@ const Contact = () => {
     }),
   };
   return (
-    <motion.div className="w-full h-[100vh]   relative overflow-hidden">
+    <motion.div className="w-full  md:h-[100vh] mb-10 md:mb-0  relative overflow-hidden">
       <motion.div
-        className="text-9xl w-full  text-white font-Nunito font-extrabold my-auto  z-10 pl-4"
+        className=" text-6xl md:text-9xl  flex flex-wrap gap-4 md:block  text-white font-Nunito font-extrabold   z-10 pl-4"
         initial="initial"
         animate="animate"
         variants={parentV}
@@ -76,7 +76,7 @@ const Contact = () => {
         <motion.p custom={2} variants={headingV}>TO</motion.p>
         <motion.p custom={3} variants={headingV}>ME</motion.p>
       </motion.div>
-      <motion.div  className="w-full  h pt-6 flex flex-col md:flex-row  justify-center items-center absolute inset-0 z-50 ">
+      <motion.div  className="w-full  h pt-6 flex flex-col md:flex-row  justify-center items-center md:absolute md:inset-0 z-50 ">
         <motion.form
           ref={form}
           onSubmit={sendEmail}

@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import ProjectsV2 from "./components/Projects-V2/Projects2";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Footer from "./components/Footer";
 
 function App() {
   const [first, setfirst] = useState(true);
@@ -37,6 +38,7 @@ function App() {
         </motion.button>
       </div>
       <Contact />
+      <Footer/>
     </div>
   );
 }
