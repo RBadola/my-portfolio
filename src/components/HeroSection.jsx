@@ -2,7 +2,6 @@ import Bg from "./Bg";
 import { animate, motion } from "framer-motion";
 // import './BluuNext-Bold.ttf'
 import Hello from "../assets/hello.svg";
-import { useRef } from "react";
 const HeroSection = () => {
   const parentV = {
     initial: {
@@ -50,7 +49,7 @@ const HeroSection = () => {
       ></motion.div>
     );
   }
-  const resumeRef = useRef()
+
   return (
     <motion.div className=" relative flex flex-col md:flex-row md:h-full  py-11 md:py-0 md:justify-center items-center text-center px-4 font-bold overflow-hidden text-white   ">
       <motion.div
@@ -71,7 +70,7 @@ const HeroSection = () => {
         </motion.div>
         <motion.div variants={childV}>
           <motion.p className="text-4xl mt-2">Hi! I'm</motion.p>
-          <motion.span className="text-anime pointer-events-none text-5xl md:text-9xl font-Poppins bg-clip-text bg-gradient-to-l from-pink-500 to-yellow-400 text-pretty text-transparent font-extrabold">
+          <motion.span className=" pointer-events-none text-5xl md:text-9xl font-Dance bg-clip-text bg-gradient-to-l from-pink-500 to-yellow-400 text-pretty text-transparent font-extrabold">
             Roshan Badola
           </motion.span>
           <motion.p className="text-3xl md:text-5xl font-semibold  ">
@@ -90,11 +89,9 @@ const HeroSection = () => {
             >
               <motion.span>Hire Me</motion.span>
             </motion.button>
-            <a href="./public/Roshan Badola - Resume.pdf" download="Roshan Badola Resume" className="hidden" ref={resumeRef}></a>
             <motion.button
               className="bg-gradient-to-l from-pink-500 to-violet-400 rounded-md py-3 px-3 my-1 mx-1 text-2xl text-center"
               whileHover={{ y: -3, scale: 1.1 }}
-              onClick={()=>resumeRef.current.click()}
             >
               <motion.span>Download CV</motion.span>
             </motion.button>
