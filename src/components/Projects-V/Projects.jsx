@@ -52,9 +52,9 @@ const Projects = () => {
     },
   ]);
   const [currentIndex, setCurrentIndex] = useState(
-    Math.floor(projects.length / 2)
+    0
   );
-
+const [active, setactive] = useState(true)
   // eslint-disable-next-line no-unused-vars
 
   return (
@@ -88,7 +88,8 @@ const Projects = () => {
               project={projects}
               setProjects={setProjects}
               setCurrentIndex={setCurrentIndex}
-              active={index === Math.floor(projects.length / 2) ? true : false}
+              setactive={setactive}
+              active={active}
             />
           );
         })}

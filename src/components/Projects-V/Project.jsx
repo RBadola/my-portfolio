@@ -14,27 +14,32 @@ const Project = ({
   index,
   setCurrentIndex,
   setProjects,
+  setactive,
   project,
 }) => {
+  let act = (index === Math.floor(project.length / 2) ? true : false)
+
   let rightE = index > currentIndex;
   let leftE = index < currentIndex;
   const moveToCenter = (index) => {
-    setProjects(() => {
-      let p = [...project];
-      let c = p.splice(index, 1);
-      p.splice(currentIndex, 0, c[0]);
-      return p;
-    });
+    // setactive(true)
+    setCurrentIndex(index)
+    // setProjects(() => {
+    //   let p = [...project];
+    //   let c = p.splice(index, 1);
+    //   p.splice(currentIndex, 0, c[0]);
+    //   return p;
+    // });
   };
   const variants = {
-    initial: {
+    initial: {      
       opacity: 0,
       y: 800,
       perspective: 0,
     },
     act: {opacity: 1,x: 0,y: 0, scale: 1,perspective: 2000,rotateX: 0, rotateY: 0},
-    left: {opacity: 1,x:  300 / (1 + index),y: 0, scale: 1 - 0.1 * (currentIndex - index),perspective: 2000,rotateX:40, rotateY: 20},
-    right: {opacity: 1,x: 300 / (index - 5),y:0, scale: 1 - 0.1 * (index - currentIndex),perspective: 2000,rotateX:-40,rotateY: 20},
+    left: {opacity: 1,x: 300 / (1 + index),y: 0, perspective: 2000,rotateX:40, rotateY: 20},
+    right: {opacity: 1,x: 300 / (index - 5),y:0, perspective: 2000,rotateX:-40,rotateY: 20},
     hover:{
       y:-10,
       transition:{
@@ -47,11 +52,11 @@ const Project = ({
       id={id}
       style={{ zIndex: rightE && -index }}
       className={twMerge(
-        ` h-[350px] w-3/4 md:w-1/4 rounded-2xl relative shrink-0  shadow-md shadow-[white]  `,
-        active && `h-[350px] w-4/5 md:h-[400px] md:w-1/3 `
+        ` h-[250px] md:h-[350px] w-3/4 md:w-1/4 rounded-2xl relative shrink-0  shadow-md shadow-[white] select-none `,
+        active && `h-[250px] w-3/4 md:h-[400px] md:w-1/3 `
       )}
       initial="initial"
-      animate={active ?"act":leftE?"left":"right"}
+      animate={act ?"act":leftE?"left":"right"}
       variants={variants}
       whileHover="hover"
       transition={{ duration: 1, damping: 0.3, ease: "easeInOut" }}
@@ -67,7 +72,7 @@ const Project = ({
           "  backdrop-blur-sm h-full w-full flex flex-col justify-center items-center  font-white rounded-2xl  text-white"
         )}
       >
-        <h1 className="text-5xl text-center ">{title.toUpperCase()}</h1>
+        <h1 className=" text-3xl md:text-5xl text-center ">{title.toUpperCase()}</h1>
         <div className="flex gap-x-3">
           <button className="hover:scale-110 hover:bg-white w-max self-center justify-self-center transition-all ease-in duration-100 rounded-2xl border-2  border-white hover:text-black p-2">
             <a target="_blank" rel="noreferrer" href={url}>

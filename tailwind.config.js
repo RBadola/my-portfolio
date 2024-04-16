@@ -9,8 +9,7 @@ export default {
       fontFamily: {
         Rubik: ["Rubik Doodle Shadow", "cursive"],
         Nunito:["Nunito Sans"],
-        Dance:["Dancing Script"],
-        Poppins:['Poppins']
+        Dance:["Dancing Script"]
        },
        gridTemplateRows: {
         // Simple 16 row grid

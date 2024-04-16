@@ -35,6 +35,7 @@ const Contact = () => {
       );
     setStatus("Send");
   };
+  
   const parentV = {
     initial: {
       y: 400,
