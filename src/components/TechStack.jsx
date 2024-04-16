@@ -15,19 +15,27 @@ const TechStack = () => {
   const isInView = useInView(ref,{amount:0.2,once:true})
   const techRef  = useRef()
   const techView = useInView(techRef,{root:ref})
+  const  [first, setfirst] = useState(false) 
+  // eslint-disable-next-line no-unused-vars
+useEffect(()=>{
+  let w = window.innerWidth
+  if(w<600){
+    setfirst(true)
+  }
+},[])
   const tech = [
-    <BiLogoMongodb size={100} />,
-    <FaReact size={100} />,
-    <TbBrandCss3 size={100} />,
-    <SiTailwindcss size={100} />,
-    <TbBrandFirebase size={100} />,
-    <TbBrandJavascript size={80} />,
-    <FaNodeJs size={100} />,
-    <SiMysql size={100} />,
-    <FaGithub size={100} />,
-    <FaHtml5 size={100} />,
-    <SiExpress size={100} />,
-    <TbBrandReactNative size={100} />,
+    <BiLogoMongodb size={first?70:100} />,
+    <FaReact size={first?70:100} />,
+    <TbBrandCss3 size={first?70:100} />,
+    <SiTailwindcss size={first?70:100} />,
+    <TbBrandFirebase size={first?70:100} />,
+    <TbBrandJavascript size={first?70:100} />,
+    <FaNodeJs size={first?70:100} />,
+    <SiMysql size={first?70:100} />,
+    <FaGithub size={first?70:100} />,
+    <FaHtml5 size={first?70:100} />,
+    <SiExpress size={first?70:100} />,
+    <TbBrandReactNative size={first?70:100} />,
   ];
 
   const variant = {
@@ -58,11 +66,10 @@ const TechStack = () => {
       },
     },
   };
-  const constraintsRef = useRef(null);
 
   return (
     <motion.div
-      className="w-full  overflow-hidden   font-extrabold flex flex-col md:flex-row  relative p-2 px-6 bg-black   z-50"
+      className="w-full overflow-hidden   font-extrabold flex flex-col md:flex-row  relative p-2 px-6 bg-black   z-50"
       ref={ref}
     >
       <motion.div
@@ -84,7 +91,7 @@ const TechStack = () => {
 
 
       <motion.div
-        className=" w-full h-full md:h-screen  grid grid-cols-2 md:grid-cols-4 grid-rows-6 gap-y-3 p-2 md:grid-rows-3  flex-2  place-items-center   rounded-md relative z-40 m-auto  bg-gradient-to-l from-pink-500 to-yellow-400  "
+        className=" w-full h-full  md:h-screen  grid grid-cols-3 md:grid-cols-4 grid-rows-4 gap-y-3 p-2 md:grid-rows-3  flex-2  place-items-center   rounded-md relative z-40 m-auto  bg-gradient-to-l from-pink-500 to-yellow-400  "
         initial="initial"
         animate="animate"
         variants={variant}
@@ -97,8 +104,6 @@ const TechStack = () => {
               variants={childVariant}
               drag
               whileDrag={{ scale: 0.8 }}
-              // dragConstraints={{ left: window.innerWidth-constraintsRef.clientWidth, right: constraintsRef.clientWidth,top:0,bottom:constraintsRef.clientHeight }}
-              // dragElastic={0.2}
               dragSnapToOrigin="true"
               key={i}
             >
