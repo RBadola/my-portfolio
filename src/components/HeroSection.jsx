@@ -2,6 +2,7 @@ import Bg from "./Bg";
 import { animate, motion } from "framer-motion";
 // import './BluuNext-Bold.ttf'
 import Hello from "../assets/hello.svg";
+import { useRef } from "react";
 const HeroSection = () => {
   const parentV = {
     initial: {
@@ -49,7 +50,7 @@ const HeroSection = () => {
       ></motion.div>
     );
   }
-
+const resumeRef = useRef()
   return (
     <motion.div className=" relative flex flex-col md:flex-row md:h-full  py-11 md:py-0 md:justify-center items-center text-center px-4 font-bold overflow-hidden text-white   ">
       <motion.div
@@ -89,9 +90,11 @@ const HeroSection = () => {
             >
               <motion.span>Hire Me</motion.span>
             </motion.button>
+            <a href="./public/Roshan Badola.pdf" download="Roshan Badola Resume"  className="hidden" ref={resumeRef}/>
             <motion.button
               className="bg-gradient-to-l from-pink-500 to-violet-400 rounded-md py-3 px-3 my-1 mx-1 text-2xl text-center"
               whileHover={{ y: -3, scale: 1.1 }}
+              
             >
               <motion.span>Download CV</motion.span>
             </motion.button>
