@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
 @tailwind base;
@@ -16,7 +16,7 @@ html {
 }
 
 .tech_card {
-  @apply w-[150px] h-[200px] md:w-44 md:h-48 relative  grid justify-center items-center text-white text-center overflow-hidden cursor-grab;
+  @apply w-[100px] h-[150px] md:w-44 md:h-48 relative  grid justify-center items-center text-white text-center overflow-hidden cursor-grab;
   background: rgba(61, 59, 59, 1);
   box-shadow: 0 8px 32px 0 rgba(221, 221, 228, 0.37);
   backdrop-filter: blur(5.5px);
@@ -29,7 +29,9 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-
+.text-anime{
+  animation: radiate 20s ease-in-out  infinite forwards ;
+}
 @keyframes radiate {
   50%{
     filter: hue-rotate(350deg);
