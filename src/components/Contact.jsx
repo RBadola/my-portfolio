@@ -80,34 +80,34 @@ const Contact = () => {
         <motion.form
           ref={form}
           onSubmit={sendEmail}
-          className=" w-10/12 md:w-2/5 text-gray-500 rounded-md py-6 text-lg px-4 gap-2 font-Nunito flex flex-col  bg-slate-100"
+          className=" w-10/12 md:w-2/6 text-gray-500 rounded-md py-6 text-lg px-4 gap-2 font-Nunito flex flex-col  bg-slate-100"
         >
           <input
             name="user_name"
             type="text"
             placeholder="Jhon Doe"
-            className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md md:w-3/4  "
+            className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md   "
             required
           />
           <input
             name="user_email"
             type="text"
             placeholder="youremail@mail.com"
-            className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md md:w-3/4 "
+            className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md  "
             required
           />
           <input
             name="user_contact"
             type="text"
             placeholder="+91-000000000"
-            className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md md:w-3/4  "
+            className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md  "
             required
           />
           <input
             name="message"
             type="text"
             placeholder="Your enquiry"
-            className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md md:w-3/4  "
+            className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md   "
             required
           />
           <button
@@ -118,6 +118,51 @@ const Contact = () => {
           >
             {Status}
           </button>
+          <hr/>
+          <motion.div>
+          <p className="flex gap-1 items-center ">
+            <span>
+              <MdOutlineCall size={30} />
+            </span>
+            <a href="tel:+918882541082">+91-8882541082</a>
+          </p>
+          <p className="flex gap-1 items-center ">
+            <span>
+              <MdOutlineMailOutline size={30} />
+            </span>
+            <a
+              href="mailto:roshanbadola06gmail.com"
+              rel="noreferrer"
+              className=" w-10/12 break-words"
+            >
+              roshanbadola06@gmail.com
+            </a>
+          </p>
+          <p className="flex gap-1 items-center ">
+            <span>
+              <BiLogoLinkedinSquare size={30} />
+            </span>
+            <a
+              href="https://www.linkedin.com/in/roshan-badola-6b89811b4"
+              rel="noreferrer"
+              target="_blank"
+            >
+              linked.in/roshan-badola
+            </a>
+          </p>
+          <p className="flex gap-1 items-center ">
+            <span>
+              <FaGithub size={30} />
+            </span>
+            <a
+              href="https://github.com/RBadola"
+              rel="noreferrer"
+              target="_blank"
+            >
+              github.com/RBadola
+            </a>
+          </p>
+          </motion.div>
         </motion.form>
         {/* <motion.div
           // initial={{ y: 150 }}
