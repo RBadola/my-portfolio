@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Project from "./Project";
-import { motion, useAnimationControls } from "framer-motion";
+import { motion, useInView, useScroll } from "framer-motion";
+import useMeasure from "react-use-measure";
+import { FaArrowRight, FaLongArrowAltLeft } from "react-icons/fa";
+import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
 const Projects = () => {
   // const ProjectData = ;
@@ -54,13 +57,18 @@ const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(
     Math.floor(projects.length / 2)
   );
-
+  const containerRef = useRef(null);
+  const projectRef = useRef(null);
+  const { scrollYProgress } = useScroll();
   // eslint-disable-next-line no-unused-vars
-
+  const [ref, { width }] = useMeasure();
+  const viewRef = useRef(null);
+  const isInView = useInView(viewRef, { root: projectRef });
   return (
     <motion.div
       layout
-      className=" w-full  font-extrabold md:p-4 flex flex-col my-2  items-center relative overflow-hidden gap-7"
+      className=" w-full h-full  font-extrabold md:p-4 flex flex-col my-2 mt-10   items-center relative overflow-hidden gap-7"
+      ref={containerRef}
     >
       <div>
         <motion.p
@@ -72,8 +80,12 @@ const Projects = () => {
           PROJECTS
         </motion.p>
       </div>
-      <motion.div layout className="z-0 w-full md:h-full  flex  md:flex-row  justify-center  relative   gap-7 ">
-        {projects.map((proj, index) => {
+      <motion.div
+        layout
+        className="z-0 w-full h-full py-4  flex  flex-row px-2   relative   gap-7 overflow-x-scroll overflow-y-hidden tech-scroll select-none "
+        ref={projectRef}
+      >
+        {[...projects, ...projects].map((proj, index) => {
           return (
             <Project
               key={index}
@@ -87,19 +99,56 @@ const Projects = () => {
               image={proj?.img}
               project={projects}
               setProjects={setProjects}
+              currentRef={viewRef}
               setCurrentIndex={setCurrentIndex}
-              active={index === Math.floor(projects.length / 2) ? true : false}
+              active={isInView}
             />
           );
         })}
       </motion.div>
-      <div>
+      <motion.div className="text-white absolute inset-0 flex h-screen w-full items-center justify-between pointer-events-none" variants={{transition:{staggerChildren: 0.05,
+        when: "beforeChildren"}}}>
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 100, opacity: [1,0] }}
+          transition={{
+            delay: 0.2,
+            duration: 3,
+            times: [0, 1],
+            type: "spring",
+            ease: "easeInOut",
+            repeatDelay: 0.4,
+            repeat: 3,
+          }}
+        >
+          <MdKeyboardDoubleArrowRight  size={100} />
+        </motion.div>
+        <motion.div
+        style={{rotateY:180}}
+          initial={{ x: 100, opacity: 0 }}
+          whileInView={{ x: -100, opacity: [1,0] }}
+          transition={{
+            delay: 0.2,
+            duration: 3,
+            times: [0, 1],
+            type: "spring",
+            ease: "easeInOut",
+            repeatDelay: 0.4,
+            repeat: 3,
+
+          }}
+          viewport={{once:true}}
+        >
+          <MdKeyboardDoubleArrowRight  size={100}/>
+        </motion.div>
+      </motion.div>
+      {/* <div>
         {projects.map((t,i)=>{
           return (
               <input key={i} type="radio" value={i}  name="tech"  className="mx-1" onChange={(e)=>e.target.value} checked={i === Math.floor(projects.length / 2) ? true : false} />
           )
         })}
-      </div>
+      </div> */}
     </motion.div>
   );
 };

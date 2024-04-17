@@ -1,9 +1,9 @@
 import Bg from "./Bg";
-import { animate, motion } from "framer-motion";
+import { animate, motion, useScroll,useSpring,useTransform } from "framer-motion";
 // import './BluuNext-Bold.ttf'
 import Hello from "../assets/hello.svg";
 import { useRef } from "react";
-const HeroSection = () => {
+const HeroSection = ({pref}) => {
   const parentV = {
     initial: {
       opacity: 0,
@@ -51,20 +51,31 @@ const HeroSection = () => {
     );
   }
   const resumeRef = useRef()
+  const targetRef = useRef(null)
+  const {scrollY,scrollYProgress} = useScroll({target:targetRef})
+  const borderRadius=useTransform(
+    scrollYProgress,
+    [0,1],
+    ["0%","100%"]
+  )
+  // const borderRadius =  useSpring(scrollYProgress)
   return (
-    <motion.div className=" relative flex flex-col md:flex-row md:h-full  py-11 md:py-0 md:justify-center items-center text-center px-4 font-bold overflow-hidden text-white   ">
+    <motion.div  className=" relative flex flex-col md:flex-row md:h-full  py-11 md:py-0 md:justify-center items-center text-center px-4 font-bold overflow-hidden text-white">
       <motion.div
         initial="initial"
         animate="animate"
         variants={parentV}
         className=" flex flex-col md:flex-row items-center gap-3"
+        // style={{background}}
       >
         <motion.div
           className="relative "
           variants={childV}
         >
           <motion.img
-            className=" w-[300px] h-[300px]  rounded-full  object-cover object-top   "
+          ref={targetRef}
+          style={{borderRadius}}
+            className=" w-[300px] h-[300px]    object-cover object-top   "
             src="portrait.avif"
             alt="my-image"
           />

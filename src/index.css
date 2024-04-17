@@ -32,6 +32,9 @@ html {
 .text-anime{
   animation: radiate 20s ease-in-out  infinite forwards ;
 }
+.tech-scroll::-webkit-scrollbar{
+  display: none;
+}
 @keyframes radiate {
   50%{
     filter: hue-rotate(350deg);

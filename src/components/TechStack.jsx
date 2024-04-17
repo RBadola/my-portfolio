@@ -48,8 +48,6 @@ useEffect(()=>{
       x:isInView? 0:2500 ,
       transition: {
         duration:1,
-        type: "spring",
-        stiffness: 300,
         staggerChildren: 0.05,
         when: "beforeChildren",
       },
@@ -78,9 +76,6 @@ useEffect(()=>{
         animate={{ x:isInView? 0:-1500 }}
         transition={{
           duration: 0.3,
-          type: "spring",
-          bounce: 4,
-          stiffness: 300,
         }}
       >
         <motion.p className="text-white  md:leading-[200px] md:tracking-wide">

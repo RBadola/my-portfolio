@@ -1,7 +1,7 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CiShare1 } from "react-icons/ci";
 import { twMerge } from "tailwind-merge";
-import { motion, useAnimationControls } from "framer-motion";
+import { motion, useAnimationControls, useInView, useMotionValueEvent, useScroll } from "framer-motion";
 
 // eslint-disable-next-line react/prop-types, no-unused-vars
 const Project = ({
@@ -15,26 +15,36 @@ const Project = ({
   setCurrentIndex,
   setProjects,
   project,
+  currentRef
 }) => {
-  let rightE = index > currentIndex;
-  let leftE = index < currentIndex;
-  const moveToCenter = (index) => {
-    setProjects(() => {
-      let p = [...project];
-      let c = p.splice(index, 1);
-      p.splice(currentIndex, 0, c[0]);
-      return p;
-    });
-  };
+  // let rightE = index > currentIndex;
+  // let leftE = index < currentIndex;
+  // const moveToCenter = (index) => {
+  //   setProjects(() => {
+  //     let p = [...project];
+  //     let c = p.splice(index, 1);
+  //     p.splice(currentIndex, 0, c[0]);
+  //     return p;
+  //   });
+  // };
+  // const viewRef = useRef(null)
+  // const isInView = useInView(viewRef)
+  // const [active, setactive] = useState(false)
+  const {scrollY} = useScroll()
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    console.log(active);
+  })
+  // useEffect(()=>{
+  //   console.log(isInView,active);
+  // },[])
   const variants = {
     initial: {
       opacity: 0,
       y: 800,
       perspective: 0,
     },
-    act: {opacity: 1,x: 0,y: 0, scale: 1,perspective: 2000,rotateX: 0, rotateY: 0},
-    left: {opacity: 1,x:  300 / (1 + index),y: 0, scale: 1 - 0.1 * (currentIndex - index),perspective: 2000,rotateX:40, rotateY: 20},
-    right: {opacity: 1,x: 300 / (index - 5),y:0, scale: 1 - 0.1 * (index - currentIndex),perspective: 2000,rotateX:-40,rotateY: 20},
+    act: {opacity: 1,x: 0,y: 0, scale: 1},
     hover:{
       y:-10,
       transition:{
@@ -45,18 +55,16 @@ const Project = ({
   return (
     <motion.div
       id={id}
-      style={{ zIndex: rightE && -index }}
       className={twMerge(
-        ` h-[350px] w-3/4 md:w-1/4 rounded-2xl relative shrink-0  shadow-md shadow-[white]  `,
-        active && `h-[350px] w-4/5 md:h-[400px] md:w-1/3 `
+        ` rounded-2xl relative shrink-0   h-full md:w-1/2 `,active && ``
       )}
       initial="initial"
-      animate={active ?"act":leftE?"left":"right"}
+      animate="act"
       variants={variants}
-      whileHover="hover"
       transition={{ duration: 1, damping: 0.3, ease: "easeInOut" }}
       onClick={() => moveToCenter(index)}
       layoutId="card"
+      ref={currentRef}
     >
       <img
         src={image}
