@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Project from "./Project";
 import { motion, useInView, useScroll } from "framer-motion";
 import useMeasure from "react-use-measure";
@@ -64,10 +64,18 @@ const Projects = () => {
   const [ref, { width }] = useMeasure();
   const viewRef = useRef(null);
   const isInView = useInView(viewRef, { root: projectRef });
+  const containerInView = useInView(containerRef,{amount:0.2})
+  const  [first, setfirst] = useState(false) 
+useEffect(()=>{
+  let w = window.innerWidth
+  if(w<600){
+    setfirst(true)
+  }
+},[])
   return (
     <motion.div
       layout
-      className=" w-full h-full  font-extrabold md:p-4 flex flex-col my-2 mt-10   items-center relative overflow-hidden gap-7"
+      className=" w-full h-1/2 md:h-full  font-extrabold md:p-4 flex flex-col my-2 mt-10   items-center relative overflow-hidden gap-7"
       ref={containerRef}
     >
       <div>
@@ -105,43 +113,43 @@ const Projects = () => {
             />
           );
         })}
+        
       </motion.div>
-      <motion.div className="text-white absolute inset-0 flex h-screen w-full items-center justify-between pointer-events-none" variants={{transition:{staggerChildren: 0.05,
-        when: "beforeChildren"}}}>
+      <motion.div  className="text-white absolute inset-0  top-1/4 flex  w-full items-center justify-between pointer-events-none" >
         <motion.div
 
-          initial={{ x: -100, opacity: 0 }}
-          whileInView={{ x: 100, opacity: [1,0] }}
+          initial={{ x: 0, opacity: 0 }}
+          animate={containerInView && { x:first?50:100, opacity: [1,0]}}
           transition={{
             delay: 0.2,
             duration: 3,
             times: [0, 1],
             type: "spring",
             ease: "easeInOut",
-            repeatDelay: 0.4,
-            repeat: 3,
+            repeatDelay: 0.1,
+            repeat: 4,
           }}
         >
-          <MdKeyboardDoubleArrowRight  size={100} />
+          <MdKeyboardDoubleArrowRight  size={first?70:100} />
         </motion.div>
         <motion.div
         style={{rotateY:180}}
 
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: -100, opacity: [1,0] }}
+          initial={{ x: 0, opacity: 0 }}
+          animate={containerInView &&{ x:first?-50:-100, opacity: [1,0]}}
           transition={{
             delay: 0.2,
             duration: 3,
             times: [0, 1],
             type: "spring",
             ease: "easeInOut",
-            repeatDelay: 0.4,
-            repeat: 3,
+            repeatDelay: 0.1,
+            repeat: 4,
 
           }}
           viewport={{once:true}}
         >
-          <MdKeyboardDoubleArrowRight  size={100}/>
+          <MdKeyboardDoubleArrowRight  size={first?70:100}/>
         </motion.div>
       </motion.div>
       {/* <div>

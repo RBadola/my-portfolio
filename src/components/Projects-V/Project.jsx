@@ -56,7 +56,7 @@ const Project = ({
     <motion.div
       id={id}
       className={twMerge(
-        ` rounded-2xl relative shrink-0   h-full w-full md:w-1/2 rotate-3`,active && ``
+        ` rounded-2xl relative shrink-0  h-full w-full md:w-1/2 rotate-3`,active && ``
       )}
       initial="initial"
       animate="act"

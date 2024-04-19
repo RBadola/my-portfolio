@@ -80,7 +80,7 @@ const Contact = () => {
         className=" text-6xl md:text-9xl    text-green-400 font-Nunito font-extrabold    pl-4 text-center"
       >
         <motion.p custom={0} initial="initial"
-         animate={isInView && {x:0,opacity:1}} variants={headingV}  transition={{duration:1.5}} viewport={{amount:0.5, once:true}}>REACH OUT TO ME</motion.p>
+         animate={isInView && {x:0,opacity:1}} variants={headingV}  transition={{duration:1.5}} >REACH OUT TO ME</motion.p>
         {/* <motion.p custom={1}  whileInView={{x:0}} variants={headingV} transition={{duration:3}} viewport={{amount:0.5, once:true}}>OUT</motion.p>
         <motion.p custom={2}  whileInView={{x:0}} variants={headingV} transition={{duration:3}} viewport={{amount:0.5, once:true}}>TO</motion.p>
         <motion.p custom={3}  whileInView={{x:0}} variants={headingV} transition={{duration:3}} viewport={{amount:0.5, once:true}}>ME</motion.p> */}
@@ -119,15 +119,18 @@ const Contact = () => {
             className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md   "
             required
           />
-          <button
+          <motion.button
             className={twMerge(
               "bg-transparent outline-none rounded p-2 px-5 bg-purple-700 text-white w-max"
             )}
+            initial={{scale:1,background:"rgb(126 34 206)"}}
             type="submit"
+            whileHover={{scale:0.9,background:"rgb(74 222 128)"}}
+            
           >
             {Status}
-          </button>
-          <hr/>
+          </motion.button>
+          <hr className="bg-green-400"/>
           <motion.div>
           <p className="flex gap-1 items-center ">
             <span>

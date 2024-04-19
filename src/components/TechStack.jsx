@@ -15,8 +15,8 @@ const TechStack = () => {
   const isInView = useInView(ref,{amount:0.2,once:true})
   const techRef  = useRef()
   const techView = useInView(techRef,{root:ref})
-  const  [first, setfirst] = useState(false) 
   // eslint-disable-next-line no-unused-vars
+  const  [first, setfirst] = useState(false) 
 useEffect(()=>{
   let w = window.innerWidth
   if(w<600){

@@ -75,7 +75,7 @@ const HeroSection = ({pref}) => {
           <motion.img
           ref={targetRef}
           style={{borderRadius}}
-            className=" w-[300px] h-[300px]    object-cover object-top   "
+            className=" w-[300px] h-[300px]   object-cover object-top   "
             src="portrait.avif"
             alt="my-image"
           />
@@ -94,8 +94,9 @@ const HeroSection = ({pref}) => {
               whileHover={{ y: -3, scale: 1.1 }}
               onClick={() =>
                 window.scrollTo({
-                  top: document.body.scrollHeight,
+                  top:document.body.scrollHeight - window.innerHeight - 100,
                   behavior: "smooth",
+                  
                 })
               }
             >
