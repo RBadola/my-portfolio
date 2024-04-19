@@ -109,6 +109,7 @@ const Projects = () => {
       <motion.div className="text-white absolute inset-0 flex h-screen w-full items-center justify-between pointer-events-none" variants={{transition:{staggerChildren: 0.05,
         when: "beforeChildren"}}}>
         <motion.div
+
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 100, opacity: [1,0] }}
           transition={{
@@ -125,6 +126,7 @@ const Projects = () => {
         </motion.div>
         <motion.div
         style={{rotateY:180}}
+
           initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: -100, opacity: [1,0] }}
           transition={{

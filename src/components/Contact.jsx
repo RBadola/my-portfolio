@@ -9,7 +9,7 @@ import { IoMdDoneAll, IoMdClose } from "react-icons/io";
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { twMerge } from "tailwind-merge";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useScroll, useTransform } from "framer-motion";
 import Parallex from "../utils/Parallex";
 
 const Contact = () => {
@@ -35,6 +35,19 @@ const Contact = () => {
       );
     setStatus("Send");
   };
+  // const targetRf=useRef(null)
+  // const {scrollYProgress} = useScroll({container:targetRf})
+
+  // const x = useMotionValue(scrollYProgress)
+  // const translateX = useTransform(
+  //   x,
+  //   // Map x from these values:
+  //   [0,100],
+  //   // Into these values:
+  //   [0,1]
+  // )
+  // const 
+
   const parentV = {
     initial: {
       y: 400,
@@ -54,27 +67,22 @@ const Contact = () => {
     },
   };
   const headingV = {
-    initial:i=> ({
+    initial:{
       x:-500,
-     
-    }),
-    animate:i=>( {
-      x:0,
-    }),
+     opacity:0
+    },
+    
   };
   return (
-    <motion.div className="w-full  md:h-[100vh] mb-10 md:mb-0  relative overflow-hidden">
+    <motion.div className="w-full  md:h-[100vh] mb-10 md:mb-0  relative overflow-hidden " >
       <motion.div
-        className=" text-6xl md:text-9xl  flex flex-wrap gap-4 md:block  text-white font-Nunito font-extrabold   z-10 pl-4"
-        initial="initial"
-        animate="animate"
-        variants={parentV}
-        layout
+        className=" text-6xl md:text-9xl    text-green-400 font-Nunito font-extrabold    pl-4 text-center"
       >
-        <motion.p custom={0} variants={headingV}>REACH</motion.p>
-        <motion.p custom={1} variants={headingV}>OUT</motion.p>
-        <motion.p custom={2} variants={headingV}>TO</motion.p>
-        <motion.p custom={3} variants={headingV}>ME</motion.p>
+        <motion.p custom={0} initial="initial"
+         animate={{x:0,opacity:1}} variants={headingV}  transition={{duration:1.5}} viewport={{amount:0.5, once:true}}>REACH OUT TO ME</motion.p>
+        {/* <motion.p custom={1}  whileInView={{x:0}} variants={headingV} transition={{duration:3}} viewport={{amount:0.5, once:true}}>OUT</motion.p>
+        <motion.p custom={2}  whileInView={{x:0}} variants={headingV} transition={{duration:3}} viewport={{amount:0.5, once:true}}>TO</motion.p>
+        <motion.p custom={3}  whileInView={{x:0}} variants={headingV} transition={{duration:3}} viewport={{amount:0.5, once:true}}>ME</motion.p> */}
       </motion.div>
       <motion.div  className="w-full  h pt-6 flex flex-col md:flex-row  justify-center items-center md:absolute md:inset-0 z-50 ">
         <motion.form
