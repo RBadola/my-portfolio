@@ -76,7 +76,7 @@ const HeroSection = ({pref}) => {
           ref={targetRef}
           style={{borderRadius}}
             className=" w-[300px] h-[300px]   object-cover object-top   "
-            src="SAVE_20240419_222713.jpg"
+            src="portrait.avif"
             alt="my-image"
           />
         </motion.div>
