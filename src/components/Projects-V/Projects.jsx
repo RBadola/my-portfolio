@@ -151,9 +151,9 @@ useEffect(()=>{
         layout
         className="z-0 w-full h-full py-4  flex  flex-row px-2   relative   gap-7 overflow-x-scroll overflow-y-hidden tech-scroll select-none "
         ref={projectRef}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onMouseDown={handleMouseDown}
+      // onTouchStart={handleTouchStart}
+      // onTouchMove={handleTouchMove}
+      // onMouseDown={handleMouseDown}
      
       >
         {[...projects, ...projects].map((proj, index) => {

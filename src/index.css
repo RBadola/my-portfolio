@@ -32,9 +32,10 @@ html {
 .text-anime{
   animation: radiate 20s ease-in-out  infinite forwards ;
 }
-.tech-scroll::-webkit-scrollbar{
+/* .tech-scroll::-webkit-scrollbar{
   display: none;
-}
+} */
+
 @keyframes radiate {
   50%{
     filter: hue-rotate(350deg);
@@ -88,5 +89,22 @@ html {
 
   to {
     rotate: 360deg;
+  }
+}
+/* .tech-scroll::-webkit-scrollbar {
+background-color: var(--picton-blue);
+border-radius: 10px;
+}          
+
+    
+
+.tech-scroll::-webkit-scrollbar-thumb   {
+  border-radius: 10px;
+  background-color: var(--pumpkin);
+  -webkit-box-shadow: inset 0 0 6px var(--mikado-yellow); 
+}     */
+@media  (max-width: 600px) {
+  .tech-scroll::-webkit-scrollbar{
+   display: none;
   }
 }
