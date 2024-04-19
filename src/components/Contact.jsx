@@ -9,7 +9,7 @@ import { IoMdDoneAll, IoMdClose } from "react-icons/io";
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { twMerge } from "tailwind-merge";
-import { motion, useMotionValue, useScroll, useTransform } from "framer-motion";
+import { motion, useInView, useMotionValue, useScroll, useTransform } from "framer-motion";
 import Parallex from "../utils/Parallex";
 
 const Contact = () => {
@@ -35,7 +35,8 @@ const Contact = () => {
       );
     setStatus("Send");
   };
-  // const targetRf=useRef(null)
+  const targetRf=useRef(null)
+  const isInView = useInView(targetRf,{amount:0.2})
   // const {scrollYProgress} = useScroll({container:targetRf})
 
   // const x = useMotionValue(scrollYProgress)
@@ -74,12 +75,12 @@ const Contact = () => {
     
   };
   return (
-    <motion.div className="w-full  md:h-[100vh] mb-10 md:mb-0  relative overflow-hidden " >
+    <motion.div className="w-full  md:h-[100vh] mb-10 md:mb-0  relative overflow-hidden " ref={targetRf}>
       <motion.div
         className=" text-6xl md:text-9xl    text-green-400 font-Nunito font-extrabold    pl-4 text-center"
       >
         <motion.p custom={0} initial="initial"
-         animate={{x:0,opacity:1}} variants={headingV}  transition={{duration:1.5}} viewport={{amount:0.5, once:true}}>REACH OUT TO ME</motion.p>
+         animate={isInView && {x:0,opacity:1}} variants={headingV}  transition={{duration:1.5}} viewport={{amount:0.5, once:true}}>REACH OUT TO ME</motion.p>
         {/* <motion.p custom={1}  whileInView={{x:0}} variants={headingV} transition={{duration:3}} viewport={{amount:0.5, once:true}}>OUT</motion.p>
         <motion.p custom={2}  whileInView={{x:0}} variants={headingV} transition={{duration:3}} viewport={{amount:0.5, once:true}}>TO</motion.p>
         <motion.p custom={3}  whileInView={{x:0}} variants={headingV} transition={{duration:3}} viewport={{amount:0.5, once:true}}>ME</motion.p> */}
