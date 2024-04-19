@@ -35,7 +35,7 @@ const Projects = () => {
       id: "p3",
       index: 2,
     },
-    {
+    {/*{
       title: "Write On",
       desc: "Built a full-stack, responsive blogging platform with comprehensive user authentication and authorization. This platform allows users to create, explore, and search for content in a seamless and intuitive manner.",
       url: " https://writeon-4e1e7.web.app/home",
@@ -52,7 +52,7 @@ const Projects = () => {
       img: "p2.png",
       id: "p5",
       index: 4,
-    },
+    },*/}
   ]);
   const [currentIndex, setCurrentIndex] = useState(
     Math.floor(projects.length / 2)
@@ -156,7 +156,7 @@ useEffect(()=>{
       // onMouseDown={handleMouseDown}
      
       >
-        {[...projects, ...projects].map((proj, index) => {
+        {[...projects].map((proj, index) => {
           return (
             <Project
               key={index}
