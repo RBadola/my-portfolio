@@ -62,7 +62,7 @@ const Project = ({
       animate="act"
       variants={variants}
       transition={{ duration: 1, damping: 0.3, ease: "easeInOut" }}
-      onClick={() => moveToCenter(index)}
+      // onClick={() => moveToCenter(index)}
       layoutId="card"
       ref={currentRef}
     >

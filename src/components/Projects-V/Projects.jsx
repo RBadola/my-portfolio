@@ -66,11 +66,70 @@ const Projects = () => {
   const isInView = useInView(viewRef, { root: projectRef });
   const containerInView = useInView(containerRef,{amount:0.2})
   const  [first, setfirst] = useState(false) 
+  const dragDivRef = useRef(null);
+  let startX, startY;
+
+  const handleTouchStart = (event) => {
+    startX = event.touches[0].clientX;
+    startY = event.touches[0].clientY;
+  };
+
+  const handleTouchMove = (event) => {
+    const currentX = event.touches[0].clientX;
+    const currentY = event.touches[0].clientY;
+    handleDrag(startX, startY, currentX, currentY);
+  };
+
+  const handleMouseDown = (event) => {
+    startX = event.clientX;
+    startY = event.clientY;
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+  };
+
+  const onMouseMove = (event) => {
+    const currentX = event.clientX;
+    const currentY = event.clientY;
+    handleDrag(startX, startY, currentX, currentY);
+  };
+
+  const onMouseUp = () => {
+    document.removeEventListener('mousemove', onMouseMove);
+    document.removeEventListener('mouseup', onMouseUp);
+  };
+
+  const handleDrag = (startX, startY, currentX, currentY) => {
+    const deltaX = currentX - startX;
+    const deltaY = currentY - startY;
+    let left=0
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (deltaX > 0) {
+        projectRef.current.scrollTo({
+          left:left+100,
+          behavior: "smooth",
+        })
+        console.log('Dragging right');
+      } else {
+        projectRef.current.scrollTo({
+          right:100,
+          behavior: "smooth",
+        })
+        console.log('Dragging left');
+      }
+    } else {
+      if (deltaY > 0) {
+        console.log('Dragging down');
+      } else {
+        console.log('Dragging up');
+      }
+    }
+  };
 useEffect(()=>{
   let w = window.innerWidth
   if(w<600){
     setfirst(true)
   }
+  console.log(projectRef);
 },[])
   return (
     <motion.div
@@ -92,6 +151,10 @@ useEffect(()=>{
         layout
         className="z-0 w-full h-full py-4  flex  flex-row px-2   relative   gap-7 overflow-x-scroll overflow-y-hidden tech-scroll select-none "
         ref={projectRef}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onMouseDown={handleMouseDown}
+     
       >
         {[...projects, ...projects].map((proj, index) => {
           return (
