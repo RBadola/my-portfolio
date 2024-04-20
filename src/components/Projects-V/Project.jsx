@@ -15,7 +15,8 @@ const Project = ({
   setCurrentIndex,
   setProjects,
   project,
-  currentRef
+  currentRef,
+  github
 }) => {
   // let rightE = index > currentIndex;
   // let leftE = index < currentIndex;
@@ -84,7 +85,7 @@ const Project = ({
             </a>
           </button>
           <button className="hover:scale-110 hover:bg-white w-max self-center justify-self-center flex gap-x-2 items-center transition-all ease-in duration-100 rounded-2xl border-2  border-white hover:text-black p-2">
-            <a target="_blank" rel="noreferrer" href={url}>
+            <a target="_blank" rel="noreferrer" href={github}>
               Github
             </a><CiShare1 />
           </button>
