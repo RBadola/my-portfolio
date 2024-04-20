@@ -84,7 +84,9 @@ const Project = ({
             </a>
           </button>
           <button className="hover:scale-110 hover:bg-white w-max self-center justify-self-center flex gap-x-2 items-center transition-all ease-in duration-100 rounded-2xl border-2  border-white hover:text-black p-2">
-            Github <CiShare1 />
+            <a target="_blank" rel="noreferrer" href={url}>
+              Github
+            </a><CiShare1 />
           </button>
         </div>
       </div>
