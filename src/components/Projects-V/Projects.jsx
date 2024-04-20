@@ -35,24 +35,6 @@ const Projects = () => {
       id: "p3",
       index: 2,
     },
-    {
-      title: "Write On",
-      desc: "Built a full-stack, responsive blogging platform with comprehensive user authentication and authorization. This platform allows users to create, explore, and search for content in a seamless and intuitive manner.",
-      url: " https://writeon-4e1e7.web.app/home",
-      tech: ["React.Js", "TaiwindCss", "Node.Js", "Express.Js", "Javascript"],
-      img: "p1.png",
-      id: "p4",
-      index: 3,
-    },
-    {
-      title: "Edit It",
-      desc: "Built a intuative web based image editor. That offers a variety of features to users to fullfill thier image editing needs on the go. ",
-      url: "https://edititv2.web.app/",
-      tech: ["React.Js", "TaiwindCss", "Firebase"],
-      img: "p2.png",
-      id: "p5",
-      index: 4,
-    },
   ]);
   const [currentIndex, setCurrentIndex] = useState(
     Math.floor(projects.length / 2)
