@@ -16,6 +16,7 @@ const Projects = () => {
       img: "p1.png",
       id: "p1",
       index: 0,
+      github:"https://github.com/RBadola/CODSOFT"
     },
     {
       title: "Edit It",
@@ -25,6 +26,7 @@ const Projects = () => {
       img: "p2.png",
       id: "p2",
       index: 1,
+      github:"https://github.com/RBadola/editIT"
     },
     {
       title: "Laptop Break ",
@@ -34,6 +36,7 @@ const Projects = () => {
       img: "p3.png",
       id: "p3",
       index: 2,
+      github:"https://github.com/RBadola/BlinkTracker"
     },
   ]);
   const [currentIndex, setCurrentIndex] = useState(
@@ -148,6 +151,7 @@ useEffect(()=>{
               title={proj?.title}
               desc={proj?.desc}
               url={proj?.url}
+              github={proj?.github}
               tech={proj?.tech}
               image={proj?.img}
               project={projects}
