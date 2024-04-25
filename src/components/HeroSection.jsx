@@ -103,7 +103,7 @@ const HeroSection = ({pref}) => {
             </motion.button>
             <a href="./public/Roshan Badola - Resume.pdf" download="Roshan Badola Resume" className="hidden" ref={resumeRef}></a>
             <motion.button
-              className="bg-gradient-to-l from-pink-500 to-violet-400 rounded-md py-3 px-3 my-1 mx-1 text-2xl text-center"
+              className="bg-Accent-300 rounded-md py-3 px-3 my-1 mx-1 text-2xl text-center"
               whileHover={{ y: -3, scale: 1.04 }}
               onClick={()=>resumeRef.current.click()}
             >

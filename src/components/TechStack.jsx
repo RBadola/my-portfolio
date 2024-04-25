@@ -93,7 +93,7 @@ useEffect(()=>{
 
 
       <motion.div
-        className=" w-full h-full  md:h-screen  grid grid-cols-3 md:grid-cols-4 grid-rows-4 gap-y-3 p-2 md:grid-rows-3  flex-2  place-items-center   rounded-md relative z-40 m-auto  bg-gradient-to-l from-pink-500 to-yellow-400  "
+        className=" w-full h-full  md:h-screen  grid grid-cols-3 md:grid-cols-4 grid-rows-4 gap-y-3 p-2 md:grid-rows-3  flex-2  place-items-center   rounded-md relative z-40 m-auto    "
         initial="initial"
         animate="animate"
         variants={variant}
@@ -102,15 +102,18 @@ useEffect(()=>{
         {tech.map((t, i) => {
           return (
             <motion.div
-              className="tech_card text-white "
+              className="tech_card "
               variants={childVariant}
               drag
               whileDrag={{ scale: 0.8 }}
               dragSnapToOrigin="true"
               key={i}
             >
-              {t.logo}
-              <span className="md:text-xl">{t.name}</span>
+              <span className=" text-Accent-300 ">
+                
+                {t.logo}
+                </span>
+              <span className="md:text-xl  text-text">{t.name}</span>
               
             </motion.div>
           );
