@@ -19,7 +19,7 @@ const Contact = () => {
         if(response.status ===200){
           e.target.reset();
           await animate(scope.current,{backgroundColor:"#bca6fa"},{duration:1})
-          await animate(scope.current,{borderRadius:"100%"},{duration:1})
+          // await animate(scope.current,{borderRadius:"100%"},{duration:1})
         } 
     }
     catch(err){
@@ -85,27 +85,30 @@ const Contact = () => {
         <motion.form
           ref={form}
           onSubmit={sendEmail}
-          className=" w-10/12 md:w-2/6 text-gray-500 rounded-md py-6 text-lg px-4 gap-2 font-Nunito flex flex-col  overflow-hidden bg-slate-100 "
+          className=" w-10/12 md:w-2/6 text-gray-200  py-6 text-lg px-4 gap-2 font-Nunito flex flex-col  overflow-hidden bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 "
         >
           <motion.input
             name="user_name"
             type="text"
-            placeholder="Jhon Doe"
-            className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md  focus:border-Accent-300 "
+            placeholder="Your Name"
+            className="bg-transparent outline-none py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-20 border border-gray-100
+            focus:border-Accent-300 "
             required
           />
           <motion.input
             name="user_email"
             type="text"
-            placeholder="youremail@mail.com"
-            className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md  focus:border-Accent-300"
+            placeholder="Your Email"
+            className="bg-transparent outline-none py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-20 border border-gray-100
+            focus:border-Accent-300"
             required
           />
           <motion.input
             name="user_contact"
             type="text"
-            placeholder="+91-000000000"
-            className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md  focus:border-Accent-300"
+            placeholder="+91"
+            className="bg-transparent outline-none py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-20 border border-gray-100
+            focus:border-Accent-300"
             required
           />
           <motion.textarea
@@ -113,13 +116,14 @@ const Contact = () => {
             name="message"
             type="text"
             placeholder="Your Enquiry"
-            className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md resize-none  focus:border-Accent-300"
+            className="bg-transparent outline-none py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-20 border border-gray-100
+            resize-none  focus:border-Accent-300"
             required
           />
           <motion.div className="flex justify-between items-center">
             <motion.button
               className={twMerge(
-                "bg-transparent outline-none rounded p-1 px-3 bg-purple-700 text-white w-max hover:bg-Accent-400 hover:scale-110 transition-all"
+                "bg-transparent outline-none rounded p-1 px-3  text-black w-max bg-Accent-400 hover:text-black hover:scale-110 transition-all"
               )}
               type="submit"
               ref={scope}
@@ -130,12 +134,12 @@ const Contact = () => {
               className="flex gap-2 w-0"
               initial="initial"
               animate={"animate"}
-              variants={iconVariants}
+              variants={isInView && iconVariants}
             >
               <motion.a
                 key={1}
                 href="tel:+918882541082"
-                className="hover:text-Accent-400  transition-all "
+                className="text-Accent-400  transition-all "
                 variants={vari}
                 whileHover={{y:-5,transition:{duration:0.1,type:"spring"}}}
               >
@@ -145,7 +149,7 @@ const Contact = () => {
                 key={2}
                 href="mailto:roshanbadola06gmail.com"
                 rel="noreferrer"
-                className="hover:text-Accent-400  transition-all "
+                className="text-Accent-400  transition-all "
                 variants={vari}
                 whileHover={{y:-5,transition:{duration:0.1,type:"spring"}}}
               >
@@ -156,7 +160,7 @@ const Contact = () => {
                 href="https://www.linkedin.com/in/roshan-badola-6b89811b4"
                 rel="noreferrer"
                 target="_blank"
-                className="hover:text-Accent-400  transition-all "
+                className=" text-Accent-400  transition-all "
                 variants={vari}
                 whileHover={{y:-5,transition:{duration:0.1,type:"spring"}}}
               >
@@ -167,7 +171,7 @@ const Contact = () => {
                 href="https://github.com/RBadola"
                 rel="noreferrer"
                 target="_blank"
-                className="hover:text-Accent-400  transition-all "
+                className="text-Accent-400  transition-all "
                 variants={vari}
                 whileHover={{y:-5,transition:{duration:0.1,type:"spring"}}}
               >

@@ -59,13 +59,13 @@ const Project = ({
       >
         <motion.h1 className="text-5xl md:text-7xl text-center" >{title.toUpperCase()}</motion.h1>
         <div className="flex gap-x-3">
-          <button className="hover:scale-110 hover:bg-white w-max self-center justify-self-center transition-all ease-in duration-100 rounded-2xl   bg-Secondary-500  hover:text-black p-2">
+          <button className="hover:scale-110 hover:bg-white w-max self-center justify-self-center transition-all ease-in duration-100 rounded-2xl   bg-Accent-300  text-black p-2">
             <a target="_blank" rel="noreferrer" href={url}>
               {" "}
               Visit Website
             </a>
           </button>
-          <button className="hover:scale-110 hover:bg-white w-max self-center justify-self-center flex gap-x-2 items-center transition-all ease-in duration-100 rounded-2xl bg-Accent-300  hover:text-black p-2">
+          <button className="hover:scale-110 hover:bg-white w-max self-center justify-self-center flex gap-x-2 items-center transition-all ease-in duration-100 rounded-2xl text-Accent-300 border backdrop-blur-md backdrop-filter  bg-gray-200 bg-opacity-25 p-2">
             <a target="_blank" rel="noreferrer" href={github}>
               Github
             </a><CiShare1 />
