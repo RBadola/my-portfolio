@@ -85,13 +85,13 @@ const Contact = () => {
         <motion.form
           ref={form}
           onSubmit={sendEmail}
-          className=" w-10/12 md:w-2/6 text-gray-200  py-6 text-lg px-4 gap-2 font-Nunito flex flex-col  overflow-hidden bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 "
+          className=" w-10/12 md:w-2/6 text-gray-200  py-6 text-lg px-4 gap-2 font-Nunito flex flex-col  overflow-hidden bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-200 "
         >
           <motion.input
             name="user_name"
             type="text"
             placeholder="Your Name"
-            className="bg-transparent outline-none py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-20 border border-gray-100
+            className="bg-transparent outline-none py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100
             focus:border-Accent-300 "
             required
           />
@@ -99,7 +99,7 @@ const Contact = () => {
             name="user_email"
             type="text"
             placeholder="Your Email"
-            className="bg-transparent outline-none py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-20 border border-gray-100
+            className="bg-transparent outline-none py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100
             focus:border-Accent-300"
             required
           />
@@ -107,7 +107,7 @@ const Contact = () => {
             name="user_contact"
             type="text"
             placeholder="+91"
-            className="bg-transparent outline-none py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-20 border border-gray-100
+            className="bg-transparent outline-none py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100
             focus:border-Accent-300"
             required
           />
@@ -116,7 +116,7 @@ const Contact = () => {
             name="message"
             type="text"
             placeholder="Your Enquiry"
-            className="bg-transparent outline-none py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-20 border border-gray-100
+            className="bg-transparent outline-none py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100
             resize-none  focus:border-Accent-300"
             required
           />

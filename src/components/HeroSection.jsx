@@ -100,7 +100,7 @@ const HeroSection = ({pref}) => {
             >
               <motion.span>Hire Me</motion.span>
             </motion.button>
-            <a href="./public/Roshan Badola - Resume.pdf" download="Roshan Badola Resume" className="hidden" ref={resumeRef}></a>
+            <a href="./public/Roshan Badola Web Developer.pdf" download="Roshan Badola Resume" className="hidden" ref={resumeRef}></a>
             <motion.button
               className="text-Accent-300 rounded-md py-3 px-3 my-1 mx-1 text-2xl text-center border backdrop-blur-md backdrop-filter  bg-gray-200 bg-opacity-25 "
               whileHover={{ y: -3, scale: 1.04 }}
