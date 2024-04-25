@@ -91,8 +91,8 @@ html {
     rotate: 360deg;
   }
 }
-/* .tech-scroll::-webkit-scrollbar {
-background-color: var(--picton-blue);
+.tech-scroll::-webkit-scrollbar {
+background-color: rgba(103, 99, 99, 0.8);
 border-radius: 10px;
 }          
 
@@ -100,9 +100,8 @@ border-radius: 10px;
 
 .tech-scroll::-webkit-scrollbar-thumb   {
   border-radius: 10px;
-  background-color: var(--pumpkin);
-  -webkit-box-shadow: inset 0 0 6px var(--mikado-yellow); 
-}     */
+  background-color: rgba(49, 227, 111, 0.8);
+}    
 @media  (max-width: 600px) {
   .tech-scroll::-webkit-scrollbar{
    display: none;

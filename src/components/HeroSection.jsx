@@ -95,8 +95,7 @@ const HeroSection = ({pref}) => {
               onClick={() =>
                 window.scrollTo({
                   top:document.body.scrollHeight - window.innerHeight - 100,
-                  behavior: "smooth",
-                  
+                  behavior: "smooth",                  
                 })
               }
             >

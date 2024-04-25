@@ -75,9 +75,9 @@ const Contact = () => {
     
   };
   return (
-    <motion.div className="w-full  md:h-[100vh] mb-10 md:mb-0  relative overflow-hidden " ref={targetRf}>
+    <motion.div className="w-full  md:h-[100vh] mb-10 md:mb-0  relative overflow-hidden text-white" ref={targetRf}>
       <motion.div
-        className=" text-6xl md:text-9xl    text-green-400 font-Nunito font-extrabold    pl-4 text-center"
+        className=" text-6xl md:text-9xl     font-Nunito font-extrabold    pl-4 text-center"
       >
         <motion.p custom={0} initial="initial"
          animate={isInView && {x:0,opacity:1}} variants={headingV}  transition={{duration:1.5}} >REACH OUT TO ME</motion.p>
@@ -115,7 +115,7 @@ const Contact = () => {
           <input
             name="message"
             type="text"
-            placeholder="Your enquiry"
+            placeholder="Your Enquiry"
             className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md   "
             required
           />
