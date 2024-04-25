@@ -124,7 +124,7 @@ useEffect(()=>{
     >
       <div>
         <motion.p
-          className=" text-6xl md:text-8xl text-white "
+          className=" text-6xl md:text-8xl text-text "
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}

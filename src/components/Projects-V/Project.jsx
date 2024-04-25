@@ -18,27 +18,9 @@ const Project = ({
   currentRef,
   github
 }) => {
-  // let rightE = index > currentIndex;
-  // let leftE = index < currentIndex;
-  // const moveToCenter = (index) => {
-  //   setProjects(() => {
-  //     let p = [...project];
-  //     let c = p.splice(index, 1);
-  //     p.splice(currentIndex, 0, c[0]);
-  //     return p;
-  //   });
-  // };
-  // const viewRef = useRef(null)
-  // const isInView = useInView(viewRef)
-  // const [active, setactive] = useState(false)
+  
   const {scrollY} = useScroll()
 
-  // useMotionValueEvent(scrollY, "change", (latest) => {
-  //   console.log(active);
-  // })
-  // useEffect(()=>{
-  //   console.log(isInView,active);
-  // },[])
   const variants = {
     initial: {
       opacity: 0,
@@ -57,13 +39,12 @@ const Project = ({
     <motion.div
       id={id}
       className={twMerge(
-        ` rounded-2xl relative shrink-0  h-full w-full md:w-1/2 rotate-3`,active && ``
+        ` rounded-2xl relative shrink-0  h-full w-full md:w-1/2 rotate-3 snap-x snap-start`,active && ``
       )}
       initial="initial"
       animate="act"
       variants={variants}
       transition={{ duration: 1, damping: 0.3, ease: "easeInOut" }}
-      // onClick={() => moveToCenter(index)}
       layoutId="card"
       ref={currentRef}
     >
@@ -76,15 +57,15 @@ const Project = ({
           "  backdrop-blur-sm h-full w-full flex flex-col justify-center items-center  font-white rounded-2xl  text-white"
         )}
       >
-        <h1 className="text-5xl text-center ">{title.toUpperCase()}</h1>
+        <motion.h1 className="text-5xl md:text-7xl text-center" >{title.toUpperCase()}</motion.h1>
         <div className="flex gap-x-3">
-          <button className="hover:scale-110 hover:bg-white w-max self-center justify-self-center transition-all ease-in duration-100 rounded-2xl border-2  border-white hover:text-black p-2">
+          <button className="hover:scale-110 hover:bg-white w-max self-center justify-self-center transition-all ease-in duration-100 rounded-2xl   bg-Secondary-500  hover:text-black p-2">
             <a target="_blank" rel="noreferrer" href={url}>
               {" "}
               Visit Website
             </a>
           </button>
-          <button className="hover:scale-110 hover:bg-white w-max self-center justify-self-center flex gap-x-2 items-center transition-all ease-in duration-100 rounded-2xl border-2  border-white hover:text-black p-2">
+          <button className="hover:scale-110 hover:bg-white w-max self-center justify-self-center flex gap-x-2 items-center transition-all ease-in duration-100 rounded-2xl bg-Accent-300  hover:text-black p-2">
             <a target="_blank" rel="noreferrer" href={github}>
               Github
             </a><CiShare1 />

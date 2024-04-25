@@ -24,18 +24,18 @@ useEffect(()=>{
   }
 },[])
   const tech = [
-    <BiLogoMongodb size={first?70:100} />,
-    <FaReact size={first?70:100} />,
-    <TbBrandCss3 size={first?70:100} />,
-    <SiTailwindcss size={first?70:100} />,
-    <TbBrandFirebase size={first?70:100} />,
-    <TbBrandJavascript size={first?70:100} />,
-    <FaNodeJs size={first?70:100} />,
-    <SiMysql size={first?70:100} />,
-    <FaGithub size={first?70:100} />,
-    <FaHtml5 size={first?70:100} />,
-    <SiExpress size={first?70:100} />,
-    <TbBrandReactNative size={first?70:100} />,
+    {logo:<FaHtml5 size={first?70:100} />,name:"HTML"},
+    {logo:<TbBrandCss3 size={first?70:100} />,name:"CSS"},
+   { logo:<BiLogoMongodb size={first?70:100} />,name:"MongoDb"},
+   {logo:<TbBrandJavascript size={first?70:100} />,name:"JavaScript"},
+   { logo:<FaReact size={first?70:100} />,name:"React"},
+   {logo:<TbBrandReactNative size={first?70:100} />,name:"React Native"},
+    {logo:<SiTailwindcss size={first?70:100} />,name:"TailwindCSS"},
+    {logo:<FaNodeJs size={first?70:100} />,name:"Node.Js"},
+    {logo:<SiExpress size={first?70:100} />,name:"Express.Js"},
+    {logo:<TbBrandFirebase size={first?70:100} />,name:"FireBase"},
+    {logo:<SiMysql size={first?70:100} />,name:"MySql"},
+    {logo:<FaGithub size={first?70:100} />,name:"GITHUB"},
   ];
 
   const variant = {
@@ -67,21 +67,28 @@ useEffect(()=>{
 
   return (
     <motion.div
-      className="w-full overflow-hidden   font-extrabold flex flex-col md:flex-row  relative p-2 px-6 bg-black   z-50"
+      className="w-full overflow-hidden font-extrabold flex flex-col md:flex-row  relative p-2 px-6"
       ref={ref}
     >
       <motion.div
-        className="text-7xl md:text-9xl  md:p-4 md:ml-3  text-left   flex-1 "
+        className="text-7xl md:text-9xl  md:p-4 md:ml-3  text-left relative  flex-1 my-3 "
         // initial={{ x: -1500 }}
         animate={{ x:isInView? 0:-1500 }}
         transition={{
           duration: 0.3,
         }}
       >
-        <motion.p className="text-white  md:leading-[200px] md:tracking-wide">
+        <motion.p className="text-text relative md:leading-[200px] md:tracking-wide  z-10  ">
+        {/* <motion.div className="bg-Accent-400 absolute top-0 left-0 -z-10 w-2 h-4" animate={{width:"60%",height:"100%"}}></motion.div> */}
           TECH
         </motion.p>
-        <motion.span className="text-white md:leading-[200px]">I KNOW</motion.span>
+        <motion.span className="text-text relative md:leading-[200px]">
+        {/* <motion.div className="bg-Accent-400 absolute top-0 left-0 -z-10 w-2 h-4" animate={{width:"100%",height:"100%"}}></motion.div> */}
+                    I KN
+                    <span className="text-Accent-300">O</span>
+                    
+                    W</motion.span>
+        
       </motion.div>
 
 
@@ -95,14 +102,16 @@ useEffect(()=>{
         {tech.map((t, i) => {
           return (
             <motion.div
-              className="tech_card "
+              className="tech_card text-white "
               variants={childVariant}
               drag
               whileDrag={{ scale: 0.8 }}
               dragSnapToOrigin="true"
               key={i}
             >
-              {t}
+              {t.logo}
+              <span className="md:text-xl">{t.name}</span>
+              
             </motion.div>
           );
         })}

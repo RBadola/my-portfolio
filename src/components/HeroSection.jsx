@@ -60,7 +60,7 @@ const HeroSection = ({pref}) => {
   )
   // const borderRadius =  useSpring(scrollYProgress)
   return (
-    <motion.div  className=" relative flex flex-col md:flex-row md:h-full  py-11 md:py-0 md:justify-center items-center text-center px-4 font-bold overflow-hidden text-white">
+    <motion.div  className=" relative flex flex-col md:flex-row md:h-full  py-11 md:py-0 md:justify-center items-center text-center px-4 font-bold overflow-hidden text-text">
       <motion.div
         initial="initial"
         animate="animate"
@@ -85,13 +85,13 @@ const HeroSection = ({pref}) => {
           <motion.span className="text-anime pointer-events-none text-5xl md:text-9xl font-Poppins bg-clip-text bg-gradient-to-l from-pink-500 to-yellow-400 text-pretty text-transparent font-extrabold">
             Roshan Badola
           </motion.span>
-          <motion.p className="text-3xl md:text-5xl font-semibold  ">
+          <motion.p className="text-3xl md:text-5xl font-semibold text-text ">
             The FullStack Developer You Need
           </motion.p>
           <motion.div className="mt-3" variants={childV} >
             <motion.button 
-              className="bg-gradient-to-l from-pink-500 to-violet-400 rounded-md py-3 px-3 my-1 mx-1 text-2xl text-center"
-              whileHover={{ y: -3, scale: 1.1 }}
+              className="bg-gradient-to-l bg-violet-500 rounded-md py-3 px-3 my-1 mx-1 text-2xl text-center"
+              whileHover={{ y: -3, scale: 1.04 }}
               onClick={() =>
                 window.scrollTo({
                   top:document.body.scrollHeight - window.innerHeight - 100,
@@ -104,7 +104,7 @@ const HeroSection = ({pref}) => {
             <a href="./public/Roshan Badola - Resume.pdf" download="Roshan Badola Resume" className="hidden" ref={resumeRef}></a>
             <motion.button
               className="bg-gradient-to-l from-pink-500 to-violet-400 rounded-md py-3 px-3 my-1 mx-1 text-2xl text-center"
-              whileHover={{ y: -3, scale: 1.1 }}
+              whileHover={{ y: -3, scale: 1.04 }}
               onClick={()=>resumeRef.current.click()}
             >
               <motion.span>Download CV</motion.span>

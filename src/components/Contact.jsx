@@ -9,7 +9,13 @@ import { IoMdDoneAll, IoMdClose } from "react-icons/io";
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { twMerge } from "tailwind-merge";
-import { motion, useInView, useMotionValue, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import Parallex from "../utils/Parallex";
 
 const Contact = () => {
@@ -35,8 +41,8 @@ const Contact = () => {
       );
     setStatus("Send");
   };
-  const targetRf=useRef(null)
-  const isInView = useInView(targetRf,{amount:0.2})
+  const targetRf = useRef(null);
+  const isInView = useInView(targetRf, { amount: 0.2 });
   // const {scrollYProgress} = useScroll({container:targetRf})
 
   // const x = useMotionValue(scrollYProgress)
@@ -47,19 +53,19 @@ const Contact = () => {
   //   // Into these values:
   //   [0,1]
   // )
-  // const 
+  // const
 
   const parentV = {
     initial: {
       y: 400,
       opacity: 0,
-      flexDirection:"row",
-      alignItems:"center",
+      flexDirection: "row",
+      alignItems: "center",
     },
     animate: {
       y: 0,
       opacity: 1,
-      
+
       transition: {
         duration: 1,
         staggerChildren: 0.5,
@@ -68,112 +74,164 @@ const Contact = () => {
     },
   };
   const headingV = {
-    initial:{
-      x:-500,
-     opacity:0
+    initial: {
+      x: -500,
+      opacity: 0,
     },
-    
+  };
+  const formvariants = {
+    initial: {
+      y: -1000,
+    },
+ 
+    animate: {
+      y: 0,
+      transition: {
+        duration: 1,
+        when: "beforeChildren",
+        staggerChildren: 0.2,
+      },
+    },
+  };
+  const fieldVariants = {
+    initial: {
+      y: -1000,
+      opacity: 0,
+    },
+ 
+    animate: {
+      y: 0,
+      opacity: [0,1],
+      transition: {
+        duration: 1,
+        time:[0,1],
+        when:"beforeChildren",
+        staggerChildren:0.2,
+        type: "tween",
+      },
+    },
+  };
+  const contact = {
+    initial: {},
   };
   return (
-    <motion.div className="w-full  md:h-[100vh] mb-10 md:mb-0  relative overflow-hidden text-white" ref={targetRf}>
-      <motion.div
-        className=" text-6xl md:text-9xl     font-Nunito font-extrabold    pl-4 text-center"
-      >
-        <motion.p custom={0} initial="initial"
-         animate={isInView && {x:0,opacity:1}} variants={headingV}  transition={{duration:1.5}} >REACH OUT TO ME</motion.p>
-        {/* <motion.p custom={1}  whileInView={{x:0}} variants={headingV} transition={{duration:3}} viewport={{amount:0.5, once:true}}>OUT</motion.p>
-        <motion.p custom={2}  whileInView={{x:0}} variants={headingV} transition={{duration:3}} viewport={{amount:0.5, once:true}}>TO</motion.p>
-        <motion.p custom={3}  whileInView={{x:0}} variants={headingV} transition={{duration:3}} viewport={{amount:0.5, once:true}}>ME</motion.p> */}
+    <motion.div
+      className="w-full  md:h-[100vh] mb-10 md:mb-0  relative overflow-hidden text-text"
+      ref={targetRf}
+    >
+      <motion.div className=" text-6xl md:text-9xl     font-Nunito font-extrabold    pl-4 text-center">
+        <motion.p
+          custom={0}
+          initial="initial"
+          animate={isInView && { x: 0, opacity: 1 }}
+          variants={headingV}
+          transition={{ duration: 1 }}
+        >
+          REACH OUT TO ME
+        </motion.p>
       </motion.div>
-      <motion.div  className="w-full  h pt-6 flex flex-col md:flex-row  justify-center items-center md:absolute md:inset-0 z-50 ">
+      <motion.div className="w-full  h pt-6 flex flex-col md:flex-row  justify-center items-center md:absolute md:inset-0 z-50 ">
         <motion.form
           ref={form}
           onSubmit={sendEmail}
-          className=" w-10/12 md:w-2/6 text-gray-500 rounded-md py-6 text-lg px-4 gap-2 font-Nunito flex flex-col  bg-slate-100"
+          className=" w-10/12 md:w-2/6 text-gray-500 rounded-md py-6 text-lg px-4 gap-2 font-Nunito flex flex-col  overflow-hidden bg-slate-100"
+          initial="initial"
+          animate={isInView && "animate"}
+          
+          variants={formvariants}
+          // transition={{}}
         >
-          <input
+          <motion.input
             name="user_name"
             type="text"
             placeholder="Jhon Doe"
             className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md   "
             required
+            // whileHover="hover"
+            variants={fieldVariants}
           />
-          <input
+          <motion.input
             name="user_email"
             type="text"
             placeholder="youremail@mail.com"
             className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md  "
             required
+            variants={fieldVariants}
           />
-          <input
+          <motion.input
             name="user_contact"
             type="text"
             placeholder="+91-000000000"
             className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md  "
             required
+            variants={fieldVariants}
           />
-          <input
+          <motion.textarea
+            cols="50"
+            variants={fieldVariants}
             name="message"
             type="text"
             placeholder="Your Enquiry"
-            className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md   "
+            className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md resize-none  "
             required
           />
           <motion.button
             className={twMerge(
-              "bg-transparent outline-none rounded p-2 px-5 bg-purple-700 text-white w-max"
+              "bg-transparent outline-none rounded p-2 px-5 bg-purple-700 text-white w-max hover:bg-Accent-400 hover:scale-125 transition-all"
             )}
-            initial={{scale:1,background:"rgb(126 34 206)"}}
             type="submit"
-            whileHover={{scale:0.9,background:"rgb(74 222 128)"}}
-            
+            // whileHover={{ scale: 1.1,background:"rgb(74 222 128)"}}
+            variants={fieldVariants}
           >
             {Status}
           </motion.button>
-          <hr className="bg-green-400"/>
-          <motion.div>
-          <p className="flex gap-1 items-center ">
-            <span>
-              <MdOutlineCall size={30} />
-            </span>
-            <a href="tel:+918882541082">+91-8882541082</a>
-          </p>
-          <p className="flex gap-1 items-center ">
-            <span>
-              <MdOutlineMailOutline size={30} />
-            </span>
-            <a
-              href="mailto:roshanbadola06gmail.com"
-              rel="noreferrer"
-              className=" w-10/12 break-words"
+          <hr  />
+          <motion.div variants={fieldVariants}>
+            <motion.p
+              className="flex gap-1 items-center hover:text-Accent-400  transition-all "
             >
-              roshanbadola06@gmail.com
-            </a>
-          </p>
-          <p className="flex gap-1 items-center ">
-            <span>
-              <BiLogoLinkedinSquare size={30} />
-            </span>
-            <a
-              href="https://www.linkedin.com/in/roshan-badola-6b89811b4"
-              rel="noreferrer"
-              target="_blank"
+              <span>
+                <MdOutlineCall size={30} />
+              </span>
+              <a href="tel:+918882541082">+91-8882541082</a>
+            </motion.p>
+            <motion.p className="flex gap-1 items-center hover:text-Accent-400  transition-all"
             >
-              linked.in/roshan-badola
-            </a>
-          </p>
-          <p className="flex gap-1 items-center ">
-            <span>
-              <FaGithub size={30} />
-            </span>
-            <a
-              href="https://github.com/RBadola"
-              rel="noreferrer"
-              target="_blank"
-            >
-              github.com/RBadola
-            </a>
-          </p>
+              <span>
+                <MdOutlineMailOutline size={30} />
+              </span>
+              <a
+                href="mailto:roshanbadola06gmail.com"
+                rel="noreferrer"
+                className=" w-10/12 break-words"
+              >
+                roshanbadola06@gmail.com
+              </a>
+            </motion.p>
+            <p className="flex gap-1 items-center hover:text-Accent-400  transition-all">
+              <span>
+                <BiLogoLinkedinSquare size={30} />
+              </span>
+              <a
+                href="https://www.linkedin.com/in/roshan-badola-6b89811b4"
+                rel="noreferrer"
+                target="_blank"
+              >
+                linked.in/roshan-badola
+              </a>
+            </p>
+            <p className="flex gap-1 items-center hover:text-Accent-400  transition-all ">
+              <span>
+                <FaGithub size={30} />
+              </span>
+              <a
+                href="https://github.com/RBadola"
+                rel="noreferrer"
+                target="_blank"
+              >
+                github.com/RBadola
+              </a>
+            </p>
           </motion.div>
         </motion.form>
         {/* <motion.div
