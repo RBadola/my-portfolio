@@ -12,15 +12,15 @@ const Contact = () => {
   const sendEmail = async (e) => {
     e.preventDefault();
     try{
-      // const response = await emailjs
-      //   .sendForm("service_7j6l115", "template_9w2wcdg", form.current, {
-      //     publicKey: "b15i6loxgShtGN6d-",
-      //   })
-        // if(response.status ===200){
+      const response = await emailjs
+        .sendForm("service_7j6l115", "template_9w2wcdg", form.current, {
+          publicKey: "b15i6loxgShtGN6d-",
+        })
+        if(response.status ===200){
           e.target.reset();
           await animate(scope.current,{backgroundColor:"#bca6fa"},{duration:1})
-          // await animate(scope.current,{borderRadius:"100%"},{duration:1})
-        // } 
+          await animate(scope.current,{borderRadius:"100%"},{duration:1})
+        } 
     }
     catch(err){
       console.log("FAILED...", err.text);
