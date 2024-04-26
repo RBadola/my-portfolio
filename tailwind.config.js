@@ -1,24 +1,61 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
         Rubik: ["Rubik Doodle Shadow", "cursive"],
-        Nunito:["Nunito Sans"],
-        Dance:["Dancing Script"]
-       },
-       gridTemplateRows: {
+        Nunito: ["Nunito Sans"],
+        Dance: ["Dancing Script"],
+        Poppins: ["Poppins"],
+      },
+      gridTemplateRows: {
         // Simple 16 row grid
-        '16': 'repeat(16, minmax(0, 1fr))',
+        16: "repeat(16, minmax(0, 1fr))",
 
         // Complex site-specific row configuration
-        'layout': '200px minmax(900px, 1fr) 100px',
-      }
+        layout: "200px minmax(900px, 1fr) 100px",
+      },
+      colors: {
+        "Background-100": "#0d0d16",
+        "Background-200": "#161624",
+        "Background-300": "#1f1f31",
+        "Background-400": "#28283e",
+        "Background-500": "#040410",
+        "Background-600": "#000000",
+        "Background-700": "#000000",
+        "Background-800": "#000000",
+        "Background-900": "#000000",
+        "Primary-100": "#f19eb8",
+        "Primary-200": "#f46da9",
+        "Primary-300": "#f23c97",
+        "Primary-400": "#ee0d84",
+        "Primary-500": "##ec4899",
+        "Primary-600": "#d22984",
+        "Primary-700": "#b50e6f",
+        "Primary-800": "#950058",
+        "Primary-900": "#740042",
+        "Secondary-100": "#d4c9fc",
+        "Secondary-200": "#bca6fa",
+        "Secondary-300": "#a78bfa",
+        "Secondary-400": "#9162f9",
+        "Secondary-500": "#A78BFA",
+        "Secondary-600": "#7e3ef8",
+        "Secondary-700": "#6429f7",
+        "Secondary-800": "#4a14f5",
+        "Secondary-900": "#3100f4",
+        "Accent-100": "#aaf7c3",
+        "Accent-200": "#85f0ad",
+        "Accent-300": "#60e998",
+        "Accent-400": "#3bdb82",
+        "Accent-500": "#50d858",
+        "Accent-600": "#45b149",
+        "Accent-700": "#3a9440",
+        "Accent-800": "#2f7637",
+        "Accent-900": "#23592d",
+        "text": "#DEDFF8",
+      },
     },
   },
   plugins: [],
-}
+};

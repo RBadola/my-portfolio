@@ -1,191 +1,185 @@
-import {
-  MdOutlinePinDrop,
-  MdOutlineCall,
-  MdOutlineMailOutline,
-} from "react-icons/md";
+import { MdOutlineCall, MdOutlineMailOutline } from "react-icons/md";
 import { BiLogoLinkedinSquare } from "react-icons/bi";
 import { FaGithub } from "react-icons/fa";
-import { IoMdDoneAll, IoMdClose } from "react-icons/io";
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { twMerge } from "tailwind-merge";
-import { motion } from "framer-motion";
-import Parallex from "../utils/Parallex";
+import { motion, useAnimate, useInView } from "framer-motion";
 
 const Contact = () => {
   const form = useRef();
   const [Status, setStatus] = useState("Send");
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
-    setStatus(".....");
-    emailjs
-      .sendForm("service_7j6l115", "template_9w2wcdg", form.current, {
-        publicKey: "b15i6loxgShtGN6d-",
-      })
-      .then(
-        () => {
-          console.log("SUCCESS!");
-          setStatus("Send");
+    try{
+      const response = await emailjs
+        .sendForm("service_7j6l115", "template_9w2wcdg", form.current, {
+          publicKey: "b15i6loxgShtGN6d-",
+        })
+        if(response.status ===200){
           e.target.reset();
-        },
-        (error) => {
-          console.log("FAILED...", error.text);
-          setStatus("Send");
-        }
-      );
+          await animate(scope.current,{backgroundColor:"#bca6fa"},{duration:1})
+          // await animate(scope.current,{borderRadius:"100%"},{duration:1})
+        } 
+    }
+    catch(err){
+      console.log("FAILED...", err.text);
+      await animate(scope.current,{backgroundColor:"red"},{duration:1})
+    }
+
     setStatus("Send");
   };
-  const parentV = {
+  const targetRf = useRef(null);
+  const isInView = useInView(targetRf, { amount: 0.2 });
+
+  const headingV = {
     initial: {
-      y: 400,
+      x: -500,
       opacity: 0,
-      flexDirection:"row",
-      alignItems:"center",
+    },
+  };
+  const iconVariants = {
+    initial: {
+      width: "0",
+      transition: {
+        duration: 1,
+        staggerChildren: 0.5
+      },
     },
     animate: {
-      y: 0,
-      opacity: 1,
-      
+      width: "max-content",
       transition: {
         duration: 1,
         staggerChildren: 0.5,
-        when: "beforeChildren",
+        when: "afterChildren",
+        staggerDirection: -1,
       },
     },
   };
-  const headingV = {
-    initial:i=> ({
-      x:-500,
-     
-    }),
-    animate:i=>( {
-      x:0,
-    }),
+  const vari = {
+    initial: {
+      opaxity: 0,
+    },
+    animate: {
+      opacity: 1,
+    },
   };
+  const [scope,animate] = useAnimate()
   return (
-    <motion.div className="w-full  md:h-[100vh] mb-10 md:mb-0  relative overflow-hidden">
-      <motion.div
-        className=" text-6xl md:text-9xl  flex flex-wrap gap-4 md:block  text-white font-Nunito font-extrabold   z-10 pl-4"
-        initial="initial"
-        animate="animate"
-        variants={parentV}
-        layout
-      >
-        <motion.p custom={0} variants={headingV}>REACH</motion.p>
-        <motion.p custom={1} variants={headingV}>OUT</motion.p>
-        <motion.p custom={2} variants={headingV}>TO</motion.p>
-        <motion.p custom={3} variants={headingV}>ME</motion.p>
+    <motion.div
+      className="w-full  md:h-[100vh] mb-10 md:mb-0  relative overflow-hidden text-text"
+      ref={targetRf}
+    >
+      <motion.div className=" text-6xl md:text-9xl     font-Nunito font-extrabold    pl-4 text-center">
+        <motion.p
+          custom={0}
+          initial="initial"
+          animate={isInView && { x: 0, opacity: 1 }}
+          variants={headingV}
+          transition={{ duration: 1 }}
+        >
+          REACH OUT TO ME
+        </motion.p>
       </motion.div>
-      <motion.div  className="w-full  h pt-6 flex flex-col md:flex-row  justify-center items-center md:absolute md:inset-0 z-50 ">
+      <motion.div className="w-full  h pt-6 flex flex-col md:flex-row  overflow-hidden justify-center items-center md:absolute md:inset-0 z-50 ">
         <motion.form
           ref={form}
           onSubmit={sendEmail}
-          className=" w-10/12 md:w-2/5 text-gray-500 rounded-md py-6 text-lg px-4 gap-2 font-Nunito flex flex-col  bg-slate-100"
+          className=" w-10/12 md:w-2/6 text-gray-200  py-6 text-lg px-4 gap-2 font-Nunito flex flex-col  overflow-hidden bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-200 "
         >
-          <input
+          <motion.input
             name="user_name"
             type="text"
-            placeholder="Jhon Doe"
-            className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md md:w-3/4  "
+            placeholder="Your Name"
+            className="bg-transparent outline-none py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100
+            focus:border-Accent-300 "
             required
           />
-          <input
+          <motion.input
             name="user_email"
             type="text"
-            placeholder="youremail@mail.com"
-            className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md md:w-3/4 "
+            placeholder="Your Email"
+            className="bg-transparent outline-none py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100
+            focus:border-Accent-300"
             required
           />
-          <input
+          <motion.input
             name="user_contact"
             type="text"
-            placeholder="+91-000000000"
-            className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md md:w-3/4  "
+            placeholder="+91"
+            className="bg-transparent outline-none py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100
+            focus:border-Accent-300"
             required
           />
-          <input
+          <motion.textarea
+            cols="50"
             name="message"
             type="text"
-            placeholder="Your enquiry"
-            className="bg-transparent outline-none py-2 px-1 border-2 border-gray-500 rounded-md md:w-3/4  "
+            placeholder="Your Enquiry"
+            className="bg-transparent outline-none py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100
+            resize-none  focus:border-Accent-300"
             required
           />
-          <button
-            className={twMerge(
-              "bg-transparent outline-none rounded p-2 px-5 bg-purple-700 text-white w-max"
-            )}
-            type="submit"
-          >
-            {Status}
-          </button>
+          <motion.div className="flex justify-between items-center">
+            <motion.button
+              className={twMerge(
+                "bg-transparent outline-none rounded p-1 px-3  text-black w-max bg-Accent-400 hover:text-black hover:scale-110 transition-all"
+              )}
+              type="submit"
+              ref={scope}
+            >
+              {Status}
+            </motion.button>
+            <motion.div
+              className="flex gap-2 w-0"
+              initial="initial"
+              animate={"animate"}
+              variants={isInView && iconVariants}
+            >
+              <motion.a
+                key={1}
+                href="tel:+918882541082"
+                className="text-Accent-400  transition-all "
+                variants={vari}
+                whileHover={{y:-5,transition:{duration:0.1,type:"spring"}}}
+              >
+                <MdOutlineCall size={30} />
+              </motion.a>
+              <motion.a
+                key={2}
+                href="mailto:roshanbadola06gmail.com"
+                rel="noreferrer"
+                className="text-Accent-400  transition-all "
+                variants={vari}
+                whileHover={{y:-5,transition:{duration:0.1,type:"spring"}}}
+              >
+                <MdOutlineMailOutline size={30} />
+              </motion.a>
+              <motion.a
+                key={3}
+                href="https://www.linkedin.com/in/roshan-badola-6b89811b4"
+                rel="noreferrer"
+                target="_blank"
+                className=" text-Accent-400  transition-all "
+                variants={vari}
+                whileHover={{y:-5,transition:{duration:0.1,type:"spring"}}}
+              >
+                <BiLogoLinkedinSquare size={30} />
+              </motion.a>
+              <motion.a
+                key={4}
+                href="https://github.com/RBadola"
+                rel="noreferrer"
+                target="_blank"
+                className="text-Accent-400  transition-all "
+                variants={vari}
+                whileHover={{y:-5,transition:{duration:0.1,type:"spring"}}}
+              >
+                <FaGithub size={30} />
+              </motion.a>
+            </motion.div>
+          </motion.div>
         </motion.form>
-        {/* <motion.div
-          // initial={{ y: 150 }}
-          // animate={{ y: [150, -170, 80, -130, 150, 0] }}
-          transition={{
-            duration: 1,
-            // type:"spring",
-            ease: "circInOut",
-          }}
-          className="  bg-rose-400 w-4/5  md:w-1/4 md:h-[350px] mb-11 absolute  md:text-lg  inset-0 p-2 md:p-9 flex flex-col md:gap-y-3 text-white font-bold  rounded-md z-50  "
-        >
-          <div className="absolute rotate-90 right-3 -top-10 md:rotate-0 md:top-14 md:-left-16 ">
-            
-            <div className=" w-[100px] h-[30px] rounded-l-xl bg-rose-400   "></div>
-            <div className="  w-[100px] h-[30px] rounded-xl  bg-slate-100"></div>
-            <div className=" w-[70px] h-[30px] absolute right-2 md:right-0 md:left-5 rounded-l-xl  bg-rose-400 -z-10"></div>
-          </div>
-
-          <p>OFFICE ADDRESS</p>
-          <p className="flex gap-1 items-center ">
-            <span>
-              <MdOutlinePinDrop size={30} />
-            </span>
-            Dilshad Colony,East Delhi, Delhi-110095,India
-          </p>
-          <p className="flex gap-1 items-center ">
-            <span>
-              <MdOutlineCall size={30} />
-            </span>
-            <a href="tel:+918882541082">+91-8882541082</a>
-          </p>
-          <p className="flex gap-1 items-center ">
-            <span>
-              <MdOutlineMailOutline size={30} />
-            </span>
-            <a
-              href="mailto:roshanbadola06gmail.com"
-              rel="noreferrer"
-              className=" w-10/12 break-words"
-            >
-              roshanbadola06@gmail.com
-            </a>
-          </p>
-          <p className="flex gap-1 items-center ">
-            <span>
-              <BiLogoLinkedinSquare size={30} />
-            </span>
-            <a
-              href="https://www.linkedin.com/in/roshan-badola-6b89811b4"
-              rel="noreferrer"
-              target="_blank"
-            >
-              linked.in/roshan-badola
-            </a>
-          </p>
-          <p className="flex gap-1 items-center ">
-            <span>
-              <FaGithub size={30} />
-            </span>
-            <a
-              href="https://github.com/RBadola"
-              rel="noreferrer"
-              target="_blank"
-            >
-              github.com/RBadola
-            </a>
-          </p>
-        </motion.div> */}
       </motion.div>
     </motion.div>
   );

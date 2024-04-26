@@ -15,19 +15,27 @@ const TechStack = () => {
   const isInView = useInView(ref,{amount:0.2,once:true})
   const techRef  = useRef()
   const techView = useInView(techRef,{root:ref})
+  // eslint-disable-next-line no-unused-vars
+  const  [first, setfirst] = useState(false) 
+useEffect(()=>{
+  let w = window.innerWidth
+  if(w<600){
+    setfirst(true)
+  }
+},[])
   const tech = [
-    <BiLogoMongodb size={100} />,
-    <FaReact size={100} />,
-    <TbBrandCss3 size={100} />,
-    <SiTailwindcss size={100} />,
-    <TbBrandFirebase size={100} />,
-    <TbBrandJavascript size={80} />,
-    <FaNodeJs size={100} />,
-    <SiMysql size={100} />,
-    <FaGithub size={100} />,
-    <FaHtml5 size={100} />,
-    <SiExpress size={100} />,
-    <TbBrandReactNative size={100} />,
+    {logo:<FaHtml5 size={first?70:100} />,name:"HTML"},
+    {logo:<TbBrandCss3 size={first?70:100} />,name:"CSS"},
+   { logo:<BiLogoMongodb size={first?70:100} />,name:"MongoDb"},
+   {logo:<TbBrandJavascript size={first?70:100} />,name:"JavaScript"},
+   { logo:<FaReact size={first?70:100} />,name:"React"},
+   {logo:<TbBrandReactNative size={first?70:100} />,name:"React Native"},
+    {logo:<SiTailwindcss size={first?70:100} />,name:"TailwindCSS"},
+    {logo:<FaNodeJs size={first?70:100} />,name:"Node.Js"},
+    {logo:<SiExpress size={first?70:100} />,name:"Express.Js"},
+    {logo:<TbBrandFirebase size={first?70:100} />,name:"FireBase"},
+    {logo:<SiMysql size={first?70:100} />,name:"MySql"},
+    {logo:<FaGithub size={first?70:100} />,name:"GITHUB"},
   ];
 
   const variant = {
@@ -40,8 +48,6 @@ const TechStack = () => {
       x:isInView? 0:2500 ,
       transition: {
         duration:1,
-        type: "spring",
-        stiffness: 300,
         staggerChildren: 0.05,
         when: "beforeChildren",
       },
@@ -62,29 +68,33 @@ const TechStack = () => {
 
   return (
     <motion.div
-      className="w-full  overflow-hidden   font-extrabold flex flex-col md:flex-row  relative p-2 px-6 bg-black   z-50"
+      className="w-full overflow-hidden font-extrabold flex flex-col md:flex-row  relative p-2 px-6"
       ref={ref}
     >
       <motion.div
-        className="text-7xl md:text-9xl  md:p-4 md:ml-3  text-left   flex-1 "
+        className="text-7xl md:text-9xl  md:p-4 md:ml-3  text-left relative  flex-1 my-3 "
         // initial={{ x: -1500 }}
         animate={{ x:isInView? 0:-1500 }}
         transition={{
           duration: 0.3,
-          type: "spring",
-          bounce: 4,
-          stiffness: 300,
         }}
       >
-        <motion.p className="text-white  md:leading-[200px] md:tracking-wide">
+        <motion.p className="text-text relative md:leading-[200px] md:tracking-wide  z-10  ">
+        {/* <motion.div className="bg-Accent-400 absolute top-0 left-0 -z-10 w-2 h-4" animate={{width:"60%",height:"100%"}}></motion.div> */}
           TECH
         </motion.p>
-        <motion.span className="text-white md:leading-[200px]">I KNOW</motion.span>
+        <motion.span className="text-text relative md:leading-[200px]">
+        {/* <motion.div className="bg-Accent-400 absolute top-0 left-0 -z-10 w-2 h-4" animate={{width:"100%",height:"100%"}}></motion.div> */}
+                    I KN
+                    <span className="text-Accent-300">O</span>
+                    
+                    W</motion.span>
+        
       </motion.div>
 
 
       <motion.div
-        className=" w-full h-full md:h-screen  grid grid-cols-2 md:grid-cols-4 grid-rows-6 gap-y-3 p-2 md:grid-rows-3  flex-2  place-items-center   rounded-md relative z-40 m-auto  bg-gradient-to-l from-pink-500 to-yellow-400  "
+        className=" w-full h-full  md:h-screen  grid grid-cols-3 md:grid-cols-4 grid-rows-4 gap-y-3 p-2 md:grid-rows-3  flex-2  place-items-center   rounded-md relative z-40 m-auto    "
         initial="initial"
         animate="animate"
         variants={variant}
@@ -102,7 +112,12 @@ const TechStack = () => {
               dragSnapToOrigin="true"
               key={i}
             >
-              {t}
+              <span className=" text-Accent-300 ">
+                
+                {t.logo}
+                </span>
+              <span className="md:text-xl  text-text">{t.name}</span>
+              
             </motion.div>
           );
         })}
