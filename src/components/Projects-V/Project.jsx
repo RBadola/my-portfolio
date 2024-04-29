@@ -45,6 +45,7 @@ const Project = ({
       <img
         src={image}
         className="w-full h-full object-cover  rounded-2xl absolute top-0 left-0"
+        loading="lazy"
       />
       <div
         className={twMerge(

@@ -54,10 +54,10 @@ useEffect(()=>{
     },
   };
   const childVariant = {
-    initial: {
+    initial:  {
       y: 1000,
     },
-    animate: {
+    animate:isInView&& {
       y: 0,
       transition: {
         duration: 0.6,
@@ -73,18 +73,15 @@ useEffect(()=>{
     >
       <motion.div
         className="text-7xl md:text-9xl  md:p-4 md:ml-3  text-left relative  flex-1 my-3 "
-        // initial={{ x: -1500 }}
         animate={{ x:isInView? 0:-1500 }}
         transition={{
           duration: 0.3,
         }}
       >
         <motion.p className="text-text relative md:leading-[200px] md:tracking-wide  z-10  ">
-        {/* <motion.div className="bg-Accent-400 absolute top-0 left-0 -z-10 w-2 h-4" animate={{width:"60%",height:"100%"}}></motion.div> */}
           TECH
         </motion.p>
         <motion.span className="text-text relative md:leading-[200px]">
-        {/* <motion.div className="bg-Accent-400 absolute top-0 left-0 -z-10 w-2 h-4" animate={{width:"100%",height:"100%"}}></motion.div> */}
                     I KN
                     <span className="text-Accent-300">O</span>
                     

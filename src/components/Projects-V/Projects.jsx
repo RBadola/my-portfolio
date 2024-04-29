@@ -19,7 +19,7 @@ const Projects = () => {
       setfirst(true);
     }
     const projects = fetch(
-      "https://rbadola.github.io/my_project_data/project.json"
+      "https://rbadola.github.io/projects_list/project.json"
     );
     projects.then((res) => res.json()).then((data) => setProjects(data));
     
