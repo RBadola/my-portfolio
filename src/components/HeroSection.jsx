@@ -88,7 +88,7 @@ const resumeRef = useRef()
             The FullStack Developer You Need
           </motion.p>
           <motion.div className="mt-3" variants={childV} >
-            <motion.button 
+            {/* <motion.button 
               className="bg-gradient-to-l bg-Accent-300 text-black rounded-md py-3 px-3 my-1 mx-1 text-2xl text-center"
               whileHover={{ y: -3, scale: 1.04 }}
               onClick={() =>
@@ -99,7 +99,7 @@ const resumeRef = useRef()
               }
             >
               <motion.span>Hire Me</motion.span>
-            </motion.button>
+            </motion.button> */}
             <a href="./public/Roshan Badola.pdf" download="Roshan Badola Resume" className="hidden" ref={resumeRef}></a>
             <motion.button
               className="text-Accent-300 rounded-md py-3 px-3 my-1 mx-1 text-2xl text-center border backdrop-blur-md backdrop-filter  bg-gray-200 bg-opacity-25 "
