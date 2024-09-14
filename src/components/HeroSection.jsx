@@ -1,7 +1,8 @@
 
 import { animate, motion, useScroll,useSpring,useTransform } from "framer-motion";
-
+import resume from "../assets/Roshan Badola.pdf"
 import { useRef } from "react";
+import sd from "../assets/sideprofile.jpg"
 const HeroSection = ({pref}) => {
   const parentV = {
     initial: {
@@ -75,8 +76,9 @@ const resumeRef = useRef()
           ref={targetRef}
           style={{borderRadius}}
             className=" w-[300px] h-[300px]   object-cover object-top   "
-            src="SAVE_20240419_222713.jpg"
+            src={sd}
             alt="my-image"
+            loading="lazy"
           />
         </motion.div>
         <motion.div variants={childV}>
@@ -100,7 +102,7 @@ const resumeRef = useRef()
             >
               <motion.span>Hire Me</motion.span>
             </motion.button> */}
-            <a href="./public/Roshan Badola.pdf" download="Roshan Badola Resume" className="hidden" ref={resumeRef}></a>
+            <a href={resume} download="Roshan Badola Resume" className="hidden" ref={resumeRef}></a>
             <motion.button
               className="text-Accent-300 rounded-md py-3 px-3 my-1 mx-1 text-2xl text-center border backdrop-blur-md backdrop-filter  bg-gray-200 bg-opacity-25 "
               whileHover={{ y: -3, scale: 1.04 }}
