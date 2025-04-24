@@ -13,7 +13,7 @@ function App() {
   const containerRef = useRef(null)
 
   return (
-    <div className="w-full h-full  ">
+    <div className="  ">
       <HeroSection pref={containerRef} />
       <TechStack />
 

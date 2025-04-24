@@ -2,7 +2,7 @@
 import { animate, motion, useScroll,useSpring,useTransform } from "framer-motion";
 import resume from "../assets/Roshan Badola.pdf"
 import { useRef } from "react";
-import sd from "../assets/sideprofile.jpg"
+import sd from "../assets/profilepic.jpg"
 const HeroSection = ({pref}) => {
   const parentV = {
     initial: {
@@ -60,7 +60,7 @@ const resumeRef = useRef()
   )
   // const borderRadius =  useSpring(scrollYProgress)
   return (
-    <motion.div  className=" relative flex flex-col md:flex-row md:h-full  py-11 md:py-0 md:justify-center items-center text-center px-4 font-bold overflow-hidden text-text">
+    <motion.div  className=" relative flex flex-col md:flex-row md:h-screen  py-11 md:py-0 md:justify-center items-center text-center px-4 font-bold overflow-hidden text-text">
       <motion.div
         initial="initial"
         animate="animate"

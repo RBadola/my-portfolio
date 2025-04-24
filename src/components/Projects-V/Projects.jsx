@@ -27,7 +27,7 @@ const Projects = () => {
   return (
     <motion.div
       layout
-      className=" w-full h-1/2 md:h-full  font-extrabold md:p-4 flex flex-col my-2 mt-10   items-center relative overflow-hidden gap-7"
+      className=" w-full h-1/2 md:h-full  font-extrabold md:p-4 flex flex-col my-2 mt-10   items-center relative gap-7"
       ref={containerRef}
     >
       <div>
@@ -42,7 +42,7 @@ const Projects = () => {
       </div>
       <motion.div
         layout
-        className="z-0 w-full h-full py-4  flex  flex-row px-2   relative   gap-7 overflow-x-scroll overflow-y-hidden tech-scroll select-none "
+        className="z-0 w-full h-full py-4 grid grid-cols-2  px-2   relative   gap-7  select-none "
         ref={projectRef}
       >
         {[...projects].map((proj, index) => {
@@ -60,43 +60,7 @@ const Projects = () => {
           );
         })}
       </motion.div>
-      <motion.div className="text-white absolute inset-0  top-1/4 flex  w-full items-center justify-between pointer-events-none">
-        <motion.div
-          initial={{ x: 0, opacity: 0 }}
-          animate={containerInView && { x: first ? 50 : 100, opacity: [1, 0] }}
-          transition={{
-            delay: 0.2,
-            duration: 3,
-            times: [0, 1],
-            type: "spring",
-            ease: "easeInOut",
-            repeatDelay: 0.1,
-            repeat: 4,
-          }}
-        >
-          <MdKeyboardDoubleArrowRight size={first ? 70 : 100} />
-        </motion.div>
-        <motion.div
-          style={{ rotateY: 180 }}
-          initial={{ x: 0, opacity: 0 }}
-          animate={
-            containerInView && { x: first ? -50 : -100, opacity: [1, 0] }
-          }
-          transition={{
-            delay: 0.2,
-            duration: 3,
-            times: [0, 1],
-            type: "spring",
-            ease: "easeInOut",
-            repeatDelay: 0.1,
-            repeat: 4,
-          }}
-          viewport={{ once: true }}
-        >
-          <MdKeyboardDoubleArrowRight size={first ? 70 : 100} />
-        </motion.div>
-      </motion.div>
-  
+     
     </motion.div>
   );
 };

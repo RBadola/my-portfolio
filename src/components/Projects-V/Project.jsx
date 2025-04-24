@@ -9,7 +9,6 @@ const Project = ({
   title,
   image,
   url,
-
   currentRef,
   github,
 }) => {
@@ -33,7 +32,7 @@ const Project = ({
     <motion.div
       id={id}
       className={twMerge(
-        ` rounded-2xl relative shrink-0  h-full w-full md:w-1/2 rotate-3 snap-x snap-start`
+        ` rounded-2xl relative shrink-0 grow-0 min-h-full aspect-video w-full  rotate-3 `
       )}
       initial="initial"
       animate="act"

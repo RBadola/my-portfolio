@@ -20,20 +20,7 @@ html {
   @apply bg-Background-500;
 }
 
-.tech_card {
-  @apply w-[100px] h-[150px] md:w-44 md:h-48 relative  flex flex-col justify-center items-center  text-center overflow-hidden cursor-grab;
-  /* background: rgba(61, 59, 59, 1); */
-  /* box-shadow: 0 8px 32px 0 rgba(221, 221, 228, 0.37); */
-  backdrop-filter: blur(5.5px);
-  -webkit-backdrop-filter: blur(5.5px);
-  border-radius: 10px;
-  transition: all;
 
-  transition-timing-function: ease-in-out;
-  transition-duration: 1000;
-  transform-origin: center;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
 
 .text-anime {
   animation: radiate 20s ease-in-out infinite forwards;
