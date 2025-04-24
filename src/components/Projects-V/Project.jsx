@@ -32,14 +32,10 @@ const Project = ({
     <motion.div
       id={id}
       className={twMerge(
-        ` rounded-2xl relative shrink-0 grow-0 min-h-full aspect-video w-full  rotate-3 `
+        ` min-h-full aspect-video w-full relative   `
       )}
-      initial="initial"
-      animate="act"
-      variants={variants}
-      transition={{ duration: 1, damping: 0.3, ease: "easeInOut" }}
-      layoutId="card"
-      ref={currentRef}
+    // g
+   
     >
       <img
         src={image}
@@ -51,10 +47,11 @@ const Project = ({
           "  backdrop-blur-sm h-full w-full flex flex-col justify-center items-center  font-white rounded-2xl  text-white"
         )}
       >
-        <motion.h1 className="text-5xl md:text-7xl text-center">
+        <motion.h1 className="text-5xl md:text-7xl font-black text-center"
+        style={{ textShadow: "2px 2px 0px black" }}>
           {title.toUpperCase()}
         </motion.h1>
-        <div className="flex gap-x-3">
+        <div className="flex gap-x-3 absolute -bottom-2 ">
           <button className="hover:scale-110 hover:bg-white w-max self-center justify-self-center transition-all ease-in duration-100 rounded-2xl   bg-Accent-300  text-black p-2">
             <a target="_blank" rel="noreferrer" href={url}>
               {" "}
