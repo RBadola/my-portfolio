@@ -104,19 +104,19 @@ const Contact = () => {
     >
       <div className="w-full h-full  absolute z-0" >
 
-        <img src={BG} alt="background" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute   " />
-        <img src={Mountain} alt="mountains" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute  " />
-        <img src={Duck} alt="duck" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute " />
-        <img src={Lake} alt="lake" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute " />
-        <img src={Sun} alt="sun" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute " />
-        <img src={Algae} alt="algae" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute " />
+        <img loading="lazy" fetchPriority="low" src={BG} alt="background" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute   " />
+        <img loading="lazy" fetchPriority="low" src={Mountain} alt="mountains" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute  " />
+        <img loading="lazy" fetchPriority="low" src={Duck} alt="duck" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute " />
+        <img loading="lazy" fetchPriority="low" src={Lake} alt="lake" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute " />
+        <img loading="lazy" fetchPriority="low" src={Sun} alt="sun" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute " />
+        <img loading="lazy" fetchPriority="low" src={Algae} alt="algae" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute " />
         {/* parallax */}
-        <motion.img style={{x}} src={Clouds} alt="clouds" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute "  />
-        <img src={Dear} alt="dear" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute "  />
-        <img src={Ground} alt="ground" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute "  />
-        <img src={Plant} alt="plant" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute "  />
-        <img src={Roots} alt="roots" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute "  />
-        <img src={Fishes} alt="fishes" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute "  />
+        <motion.img loading="lazy" fetchPriority="low" style={{x}} src={Clouds} alt="clouds" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute "  />
+        <img loading="lazy" fetchPriority="low" src={Dear} alt="dear" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute "  />
+        <img loading="lazy" fetchPriority="low" src={Ground} alt="ground" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute "  />
+        <img loading="lazy"  fetchPriority="low"src={Plant} alt="plant" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute "  />
+        <img loading="lazy" fetchPriority="low" src={Roots} alt="roots" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute "  />
+        <img loading="lazy" fetchPriority="low" src={Fishes} alt="fishes" className="w-max h-max object-cover bottom-10 md:top-0 md:object-contain absolute "  />
       </div>
       <motion.div className=" text-6xl md:text-9xl   relative  font-Nunito font-extrabold    pl-4 text-center" ref={ref}>
         <motion.p
@@ -133,7 +133,7 @@ const Contact = () => {
         </motion.p>
       </motion.div>
       {/* <a href="https://www.freepik.com/free-vector/ecosystem-concept-illustration_14205322.htm">Image by storyset on Freepik</a> */}
-      {/* <img src="" alt="" /> */}
+      {/* <img loading="lazy" src="" alt="" /> */}
       <motion.div className="w-full  h pt-6 flex flex-col md:flex-row  overflow-hidden justify-center items-center md:absolute md:inset-0 z-50 ">
         <motion.form
           ref={form}
