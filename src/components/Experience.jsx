@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Element } from 'react-scroll';
 import { twMerge } from 'tailwind-merge';
+import Banner from './Banner';
 
 const projects =
     [{
@@ -36,9 +37,9 @@ const projects =
 
 const Experience = () => {
     return (
-        <Element name="experience">
-        <section className='h-screen'>
-            <p className=" text-6xl md:text-8xl font-black text-text text-center">
+        <>
+        <section className=' w-full h-1/2 md:min-h-full md:max-h-screen py-10 '>
+            <p className=" text-xl md:text-4xl font-black text-text text-left max-w-7xl mx-auto">
                 RECENT WORK
             </p>
             <div
@@ -47,7 +48,7 @@ const Experience = () => {
                     return (
                         <div
                             key={index}
-                            className='min-h-full aspect-video w-full relative'
+                            className='min-h-full  aspect-video w-full relative'
                         >
                             <img
                                 src={proj.img}
@@ -57,17 +58,17 @@ const Experience = () => {
                             />
                             <div
                                 className={twMerge(
-                                    "  backdrop-blur-sm h-full w-full flex flex-col justify-center items-center  font-white rounded-2xl  text-white"
+                                    "  backdrop-blur-xs h-full w-full flex flex-col justify-center items-center  font-white rounded-2xl  text-white"
                                 )}
                             >
-                                <h1 className="text-5xl md:text-5xl font-black text-center text-pretty leading-snug "
+                                <h1 className="text-xl md:text-2xl font-black text-center text-pretty leading-snug "
                                     style={{ textShadow: "2px 2px 0px black" }}>
                                     {proj.title.toUpperCase()}
                                 </h1>
                                 <a
                                     href={proj.url}
                                     target='_blank'
-                                    className="absolute -bottom-2 hover:scale-110 hover:bg-white w-max self-center justify-self-center transition-all ease-in duration-100 rounded-2xl   bg-Accent-300  text-black p-2">
+                                    className="absolute -bottom-2 hover:scale-110 hover:bg-white  hover:text-black w-max self-center justify-self-center transition-all ease-in duration-100 rounded-2xl   bg-accent-300  font-black p-2">
                                     Visit Website
                                 </a>
 
@@ -76,8 +77,12 @@ const Experience = () => {
                     );
                 })}
             </div>
+        {/* <div className="relative mt-15 mb-10">
+        <Banner  items={["React", "Javascript", "next", "html", "css", "docker", "github"]} classname={"bg-white text-Accent-400 rotate-2"}/>
+        <Banner  items={["React", "Javascript", "next", "html", "css", "docker", "github"]} classname={"text-white bg-gray-400 -rotate-2"}/>
+      </div> */}
         </section>
-        </Element>
+        </>
     )
 }
 

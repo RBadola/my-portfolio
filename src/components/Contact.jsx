@@ -138,30 +138,30 @@ const Contact = () => {
         <motion.form
           ref={form}
           onSubmit={sendEmail}
-          className=" w-10/12 md:w-2/6 text-gray-700  py-6 text-lg px-4 gap-2 font-Nunito flex flex-col  overflow-hidden bg-black bg-opacity-20 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm  border border-gray-200 "
+          className=" w-10/12 md:w-2/6 text-gray-700  py-6 text-lg px-4 gap-2 font-Nunito flex flex-col  overflow-hidden bg-black/20 bg-opacity-20 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm  border border-gray-200 "
         >
           <motion.input
             name="user_name"
             type="text"
             placeholder="Your Name"
-            className=" placeholder-white outline-none py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100
-            focus:border-Accent-300 "
+            className=" placeholder-white outline-none py-2 px-1  rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100
+            focus:border-accent-300 "
             required
           />
           <motion.input
             name="user_email"
             type="text"
             placeholder="Your Email"
-            className="bg-transparent outline-none placeholder-white py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100
-            focus:border-Accent-300"
+            className="bg-transparent outline-none placeholder-white py-2 px-1 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100
+            focus:border-accent-300"
             required
           />
           <motion.input
             name="user_contact"
             type="text"
             placeholder="+91"
-            className="bg-transparent outline-none placeholder-white py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100
-            focus:border-Accent-300"
+            className="bg-transparent outline-none placeholder-white py-2 px-1  rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100
+            focus:border-accent-300"
             required
           />
           <motion.textarea
@@ -169,14 +169,14 @@ const Contact = () => {
             name="message"
             type="text"
             placeholder="Your Enquiry"
-            className="bg-transparent outline-none placeholder-white py-2 px-1 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100
-            resize-none  focus:border-Accent-300"
+            className="bg-transparent outline-none placeholder-white py-2 px-1  rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100
+            resize-none  focus:border-accent-300"
             required
           />
           <motion.div className="flex justify-between items-center">
             <motion.button
               className={twMerge(
-                "bg-transparent outline-none rounded p-1 px-3  text-black w-max bg-Accent-400 hover:text-black hover:scale-110 transition-all"
+                "outline-none rounded p-1 px-3  text-white w-max bg-accent-400 hover:text-black hover:scale-110 transition-all"
               )}
               type="submit"
               ref={scope}
@@ -193,7 +193,7 @@ const Contact = () => {
               <motion.a
                 key={1}
                 href="tel:+918882541082"
-                className="text-Accent-600  transition-all "
+                className="text-accent-600  transition-all "
                 variants={vari}               viewport={{once:true}}
 
                 whileHover={{ y: -5, transition: { duration: 0.1, type: "spring" } }}
@@ -204,7 +204,7 @@ const Contact = () => {
                 key={2}
                 href="mailto:roshanbadola06gmail.com"
                 rel="noreferrer"
-                className="text-Accent-600  transition-all "
+                className="text-accent-600  transition-all "
                 variants={vari}               viewport={{once:true}}
 
                 whileHover={{ y: -5, transition: { duration: 0.1, type: "spring" } }}
@@ -217,7 +217,7 @@ const Contact = () => {
                 rel="noreferrer"               viewport={{once:true}}
 
                 target="_blank"
-                className=" text-Accent-600  transition-all "
+                className=" text-accent-600  transition-all "
                 variants={vari}
                 whileHover={{ y: -5, transition: { duration: 0.1, type: "spring" } }}
               >
@@ -229,7 +229,7 @@ const Contact = () => {
                 rel="noreferrer"               viewport={{once:true}}
 
                 target="_blank"
-                className="text-Accent-600  transition-all "
+                className="text-accent-600  transition-all "
                 variants={vari}
                 whileHover={{ y: -5, transition: { duration: 0.1, type: "spring" } }}
               >

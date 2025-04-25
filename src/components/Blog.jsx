@@ -13,7 +13,8 @@ const Blog = () => {
         Fetchlogss()
     }, [])
     return (
-        <section className='min-h-screen'>
+        <section className='min-h-max my-10 py-10'>
+            {/* <h1 className="text-3xl text-accent-200 my-10 text-center"></h1> */}
             <p className=" text-6xl md:text-8xl font-black text-text text-center">
                 Blogs
             </p>
@@ -39,8 +40,8 @@ const Blog = () => {
                                 <td className="p-3">{blog?.public_reactions_count}</td>
                                 <td className="p-3">{blog?.reading_time_minutes} mins</td>
                                 <td className="p-3 border-r-transparent ">
-                                    <a href={blog?.url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700">
-                                        <FaSquareArrowUpRight className="inline-block text-lg" />
+                                    <a href={blog?.url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 w-full h-full">
+                                        <FaSquareArrowUpRight className="inline-block text-lg" size={30} />
                                     </a>
                                 </td>
                             </tr>

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Project from "./Project";
 import { motion, useInView } from "framer-motion";
+import Banner from "../Banner";
 
 const projects = 
 [{
@@ -53,14 +54,15 @@ const Projects = () => {
     }
   }, []);
   return (
+    <section className="mt-10 py-10 max-h-screen">
     <motion.div
       layout
-      className=" w-full h-1/2 md:min-h-full md:h-screen  font-extrabold md:p-4 flex flex-col my-2 mt-10   items-center relative gap-7"
+      className=" w-full  h-1/2  font-extrabold  flex flex-col relative gap-7"
       ref={containerRef}
     >
       <div>
         <motion.p
-          className=" text-6xl md:text-8xl text-text text-center "
+          className=" w-full text-xl md:text-4xl text-text text-left max-w-7xl mx-auto "
           transition={{ duration: 1 }}
         >
           PERSONAL PROJECTS
@@ -68,7 +70,7 @@ const Projects = () => {
       </div>
       <motion.div
         layout
-        className="z-0 w-full max-w-7xl mx-auto h-1/2 py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  px-4   relative   gap-7  select-none "
+        className="z-0 w-full max-w-7xl mx-auto h-full py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  px-4   relative   gap-7  select-none "
         ref={projectRef}
       >
         {projects.map((proj, index) => {
@@ -86,8 +88,12 @@ const Projects = () => {
           );
         })}
       </motion.div>
-
     </motion.div>
+      {/* <div className="my-15 relative">
+        <Banner  items={["React", "Javascript", "next", "html", "css", "docker", "github"]} classname={"bg-white text-accent-400 rotate-2"}/>
+        <Banner  items={["React", "Javascript", "next", "html", "css", "docker", "github"]} classname={"text-white bg-gray-400 -rotate-2"}/>
+    </div> */}
+    </section>
   );
 };
 

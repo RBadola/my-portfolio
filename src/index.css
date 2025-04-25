@@ -1,23 +1,58 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
 /* SCSS RGB */
+@theme{
+  --color-background-100: #0d0d16;
+  --color-background-200: #161624;
+  --color-background-300: #1f1f31;
+  --color-background-400: #28283e;
+  --color-background-500: #040410;
+  --color-background-600: #000000;
+  --color-background-700: #000000;
+  --color-background-800: #000000;
+  --color-background-900: #000000;
+
+  --color-primary-100: #f19eb8;
+  --color-primary-200: #f46da9;
+  --color-primary-300: #f23c97;
+  --color-primary-400: #ee0d84;
+  --color-primary-500: #ec4899; /* fixed double hash */
+  --color-primary-600: #d22984;
+  --color-primary-700: #b50e6f;
+  --color-primary-800: #950058;
+  --color-primary-900: #740042;
+
+  --color-secondary-100: #d4c9fc;
+  --color-secondary-200: #bca6fa;
+  --color-secondary-300: #a78bfa;
+  --color-secondary-400: #9162f9;
+  --color-secondary-500: #a78bfa;
+  --color-secondary-600: #7e3ef8;
+  --color-secondary-700: #6429f7;
+  --color-secondary-800: #4a14f5;
+  --color-secondary-900: #3100f4;
+
+  --color-accent-100: #aaf7c3;
+  --color-accent-200: #85f0ad;
+  --color-accent-300: #60e998;
+  --color-accent-400: #3bdb82;
+  --color-accent-500: #50d858;
+  --color-accent-600: #45b149;
+  --color-accent-700: #3a9440;
+  --color-accent-800: #2f7637;
+  --color-accent-900: #23592d;
+
+  --color-text: #DEDFF8;
+}
 html {
-  --green-blue: #2364aaff;
-  --picton-blue: #3da5d9ff;
-  --verdigris: #73bfb8ff;
-  --mikado-yellow: #fec601ff;
-  --pumpkin: #ea7317ff;
-  --yinmn-blue: rgba(53, 80, 112, 1);
-  --chinese-violet: rgba(109, 89, 122, 1);
-  --china-rose: rgba(181, 101, 118, 1);
-  --light-coral: rgba(229, 107, 111, 1);
-  --buff: rgba(234, 172, 139, 1);
-  @apply bg-Background-500;
+@apply bg-background-500;
+  cursor:
+  url(cursor.png),
+  auto;
+}
+html::-webkit-scrollbar{
+  display: none ;
+  
 }
 
 .bg-pattern {
@@ -64,9 +99,7 @@ html {
   animation: glow 2s linear forwards both;
 }
 .blob {
-  /* clip-path: path('M41.8,-10.7C49.5,10.1,47.9,36.9,31.2,50.9C14.5,64.9,-17.3,66.2,-37.1,51.6C-57,37,-65.1,6.6,-56.9,-14.8C-48.8,-36.2,-24.4,-48.6,-3.7,-47.5C17.1,-46.3,34.1,-31.5,41.8,-10.7Z'); */
-  animation: rotate 20s infinite;
-  /* transform:"translate(100 100)"; */
+ animation: rotate 20s infinite;
 }
 @keyframes glow {
 }
