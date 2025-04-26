@@ -28,7 +28,7 @@ function App() {
       <TechStack />
       <Element name="experience" >
 
-        <h1 className="text-6xl md:text-8xl font-black text-text text-center">My Portfolio</h1>
+        <h1 className="text-6xl md:text-8xl font-black text-text text-center mt-30 md:mt-0">My Portfolio</h1>
         <Experience />
         <Projects />
       </Element>

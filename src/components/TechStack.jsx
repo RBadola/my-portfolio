@@ -124,7 +124,7 @@ const TechStack = () => {
 
   return (
     <motion.div
-      className="w-full min-h-full mb-30 overflow-x-clip  font-extrabold  relative py-10 "
+      className="w-full min-h-full my-10 md:mb-30 overflow-x-clip  font-extrabold  relative py-10 "
       ref={ref}
     >
       <motion.div

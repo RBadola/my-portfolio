@@ -39,7 +39,7 @@ const Experience = () => {
     return (
         <>
         <section className=' w-full h-1/2 md:min-h-full md:max-h-screen py-10 '>
-            <p className=" text-xl md:text-4xl font-black text-text text-left max-w-7xl mx-auto">
+            <p className=" text-xl md:text-4xl font-black text-text text-center md:text-left max-w-7xl mx-auto">
                 RECENT WORK
             </p>
             <div

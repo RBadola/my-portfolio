@@ -54,7 +54,7 @@ const Projects = () => {
     }
   }, []);
   return (
-    <section className="mt-10 py-10 max-h-screen">
+    <section className=" py-10 ">
     <motion.div
       layout
       className=" w-full  h-1/2  font-extrabold  flex flex-col relative gap-7"
@@ -62,7 +62,7 @@ const Projects = () => {
     >
       <div>
         <motion.p
-          className=" w-full text-xl md:text-4xl text-text text-left max-w-7xl mx-auto "
+          className=" w-full text-xl md:text-4xl text-text text-center md:text-left max-w-7xl mx-auto "
           transition={{ duration: 1 }}
         >
           PERSONAL PROJECTS
